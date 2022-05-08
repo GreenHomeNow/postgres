@@ -11,7 +11,6 @@ app.use(cors());
 app.use(express.json());
 
 
-
 // Route 1) Get all firms data 
 app.get("/api/v1/firms", async (req,res) => {
 
@@ -41,7 +40,6 @@ app.get("/api/v1/firms", async (req,res) => {
 
 
 // Route 2) Get the firms data filtered by postal code 
- 
 app.get("/api/v1/firms/:postal",  async (req,res) => {
 
   console.log(req.params);
