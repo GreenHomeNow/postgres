@@ -45,7 +45,7 @@ import Axios from  "axios";
 
 
 //Postal codes
-const options = [ 'abcd', 'abcd']
+const options = [ '12345', '14356']
 
 // drop down
 const Accordion = styled((props) => (
@@ -158,7 +158,7 @@ const Home =() =>  {
   const [rent, setRent] = React.useState(0);
 
 
-  const [naame, setNaame] = React.useState('emplyee');
+
 
   //Installation firms 
   const [employeeList, setEmployeelist] = useState([]);
@@ -220,7 +220,7 @@ const Home =() =>  {
   
     const getEmployee = async () => {
     try {
-    const response = await firmsFinder.get(`/${postal}`);
+    const response = await firmsFinder.get(`/${inputValue}`);
     console.log(response.data.rows);
     console.log("Hello postal"+postal);
     setFirms(response.data.rows);
@@ -584,8 +584,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch:  {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -594,7 +594,7 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
                                   <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20))}</>
                                 </div>
                                 </div>)
@@ -604,7 +604,7 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
                                 <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50))}</>
                               </div>
                               </div>)
@@ -614,8 +614,9 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100))}</>
+                              
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -629,8 +630,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -639,8 +640,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work20))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -649,8 +650,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work50))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -659,8 +660,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work100))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -674,8 +675,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -684,8 +685,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work20))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -694,8 +695,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work50))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -704,8 +705,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work100))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -719,8 +720,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -729,8 +730,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work20))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work20))}</>
                               </div>
                               </div>)
                       }
@@ -739,8 +740,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work50))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work50))}</>
                             </div>
                             </div>)
                           }
@@ -749,8 +750,8 @@ if ( battery === 0) {
                           <div>
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
-                            <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work100))}</>
+                            <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work100))}</>
                           </div>
                           </div>)
                         }
@@ -767,8 +768,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -777,8 +778,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work20))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -787,8 +788,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work50))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -797,8 +798,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work100))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -812,8 +813,8 @@ if ( battery === 0) {
                                       <div>
                                         <h3>Firm: {val.firm}</h3>
                                         <h3>Branch: {val.branch}</h3>
-                                        <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                        <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work10))}</>
+                                        <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                        <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work10))}</>
                                       </div>
                                       </div>)
                                   }
@@ -822,8 +823,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work20))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work20))}</>
                                     </div>
                                     </div>)
                             }
@@ -832,8 +833,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work50))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work50))}</>
                                   </div>
                                   </div>)
                                 }
@@ -842,8 +843,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work100))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work100))}</>
                                 </div>
                                 </div>)
                               }
@@ -857,8 +858,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -867,8 +868,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+val.byestwo  + val.stthree + (module * val.work20))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+val.byestwo  + val.stthree + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -877,8 +878,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work50))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -887,8 +888,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work100))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -902,8 +903,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -912,8 +913,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work20))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -922,8 +923,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work50))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -932,8 +933,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work100))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -950,8 +951,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -960,8 +961,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work20))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -970,8 +971,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work50))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -980,8 +981,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work100))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -995,8 +996,8 @@ if ( battery === 0) {
                                       <div>
                                         <h3>Firm: {val.firm}</h3>
                                         <h3>Branch: {val.branch}</h3>
-                                        <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                        <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work10))}</>
+                                        <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                        <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work10))}</>
                                       </div>
                                       </div>)
                                   }
@@ -1005,8 +1006,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work20))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work20))}</>
                                     </div>
                                     </div>)
                             }
@@ -1015,8 +1016,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work50))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work50))}</>
                                   </div>
                                   </div>)
                                 }
@@ -1025,8 +1026,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work100))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work100))}</>
                                 </div>
                                 </div>)
                               }
@@ -1040,8 +1041,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stthree + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stthree + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -1050,8 +1051,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stthree + (module * val.work20))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stthree + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -1060,8 +1061,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stthree + (module * val.work50))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stthree + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -1070,8 +1071,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stthree + (module * val.work100))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stthree + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -1085,8 +1086,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stfour + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stfour + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1095,8 +1096,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stfour + (module * val.work20))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stfour + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -1105,8 +1106,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stfour + (module * val.work50))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stfour + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -1115,8 +1116,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stfour + (module * val.work100))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stfour + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -1133,8 +1134,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -1143,8 +1144,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work20))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -1153,8 +1154,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work50))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -1163,8 +1164,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work100))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -1178,8 +1179,8 @@ if ( battery === 0) {
                                       <div>
                                         <h3>Firm: {val.firm}</h3>
                                         <h3>Branch: {val.branch}</h3>
-                                        <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                        <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.sttwo + (module * val.work10))}</>
+                                        <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                        <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.sttwo + (module * val.work10))}</>
                                       </div>
                                       </div>)
                                   }
@@ -1188,8 +1189,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.sttwo + (module * val.work20))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.sttwo + (module * val.work20))}</>
                                     </div>
                                     </div>)
                             }
@@ -1198,8 +1199,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour+ val.sttwo + (module * val.work50))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour+ val.sttwo + (module * val.work50))}</>
                                   </div>
                                   </div>)
                                 }
@@ -1208,8 +1209,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.sttwo + (module * val.work100))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.sttwo + (module * val.work100))}</>
                                 </div>
                                 </div>)
                               }
@@ -1223,8 +1224,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour+ val.stthree + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour+ val.stthree + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -1233,8 +1234,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stthree + (module * val.work20))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stthree + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -1243,8 +1244,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stthree + (module * val.work50))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stthree + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -1253,8 +1254,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stthree + (module * val.work100))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stthree + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -1268,8 +1269,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stfour + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stfour + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1278,8 +1279,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stfour + (module * val.work20))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stfour + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -1288,8 +1289,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stfour + (module * val.work50))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stfour + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -1298,8 +1299,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stfour + (module * val.work100))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stfour + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -1323,8 +1324,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -1333,8 +1334,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -1343,8 +1344,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1353,8 +1354,8 @@ if ( battery === 0) {
                           <div>
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
-                            <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                            <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -1368,8 +1369,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1378,8 +1379,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -1388,8 +1389,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1398,8 +1399,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1413,8 +1414,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -1423,8 +1424,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -1433,8 +1434,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1443,8 +1444,8 @@ if ( battery === 0) {
                           <div>
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
-                            <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                            <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -1458,8 +1459,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                           }
@@ -1468,8 +1469,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                     }
@@ -1478,8 +1479,8 @@ if ( battery === 0) {
                           <div>
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
-                            <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                            <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -1488,8 +1489,8 @@ if ( battery === 0) {
                         <div>
                           <h3>Firm: {val.firm}</h3>
                           <h3>Branch: {val.branch}</h3>
-                          <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                          <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                          <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                          <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
                         </div>
                         </div>)
                       }
@@ -1506,8 +1507,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1516,8 +1517,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo+ val.stone + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo+ val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -1526,8 +1527,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1536,8 +1537,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1551,8 +1552,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo+ val.stone + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo+ val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -1561,8 +1562,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                           }
@@ -1571,8 +1572,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                               }
@@ -1581,8 +1582,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1596,8 +1597,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1606,8 +1607,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -1616,8 +1617,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+val.byestwo + val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+val.byestwo + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1626,8 +1627,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1641,8 +1642,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -1651,8 +1652,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -1661,8 +1662,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price :  { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                              <h3>Price :  { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1671,8 +1672,8 @@ if ( battery === 0) {
                           <div>
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
-                            <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
+                            <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -1689,8 +1690,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+val.byesthree+ val.stone + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+val.byesthree+ val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1699,8 +1700,8 @@ if ( battery === 0) {
                                 <div>
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -1709,8 +1710,8 @@ if ( battery === 0) {
                               <div>
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree+ val.stone + (module * val.work10))}</>
+                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree+ val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1719,8 +1720,8 @@ if ( battery === 0) {
                             <div>
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1734,8 +1735,8 @@ if ( battery === 0) {
                                     <div>
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -1744,8 +1745,8 @@ if ( battery === 0) {
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                           }
@@ -1755,7 +1756,7 @@ if ( battery === 0) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                               }
@@ -1765,7 +1766,7 @@ if ( battery === 0) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1780,7 +1781,7 @@ if ( battery === 0) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1790,7 +1791,7 @@ if ( battery === 0) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -1800,7 +1801,7 @@ if ( battery === 0) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1810,7 +1811,7 @@ if ( battery === 0) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1825,7 +1826,7 @@ if ( battery === 0) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree+ val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree+ val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -1835,7 +1836,7 @@ if ( battery === 0) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+val.byesthree + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+val.byesthree + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -1845,7 +1846,7 @@ if ( battery === 0) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1855,7 +1856,7 @@ if ( battery === 0) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -1873,7 +1874,7 @@ if ( battery === 0) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1883,7 +1884,7 @@ if ( battery === 0) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -1893,7 +1894,7 @@ if ( battery === 0) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1903,7 +1904,7 @@ if ( battery === 0) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -1918,7 +1919,7 @@ if ( battery === 0) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -1928,7 +1929,7 @@ if ( battery === 0) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                           }
@@ -1938,7 +1939,7 @@ if ( battery === 0) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                               }
@@ -1948,7 +1949,7 @@ if ( battery === 0) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1963,7 +1964,7 @@ if ( battery === 0) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -1973,7 +1974,7 @@ if ( battery === 0) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -1983,7 +1984,7 @@ if ( battery === 0) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -1993,7 +1994,7 @@ if ( battery === 0) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour+ val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour+ val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -2008,7 +2009,7 @@ if ( battery === 0) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -2018,7 +2019,7 @@ if ( battery === 0) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -2028,7 +2029,7 @@ if ( battery === 0) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -2038,7 +2039,7 @@ if ( battery === 0) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesfour + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -2068,7 +2069,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -2078,7 +2079,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stone + (module * val.work20))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stone + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -2088,7 +2089,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work50))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -2098,7 +2099,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work100))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -2113,7 +2114,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -2123,7 +2124,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work20))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -2133,7 +2134,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work50))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -2143,7 +2144,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work100))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -2158,7 +2159,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -2168,7 +2169,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work20))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -2178,7 +2179,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work50))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -2188,7 +2189,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work100))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -2203,7 +2204,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -2213,7 +2214,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work20))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work20))}</>
                               </div>
                               </div>)
                       }
@@ -2223,7 +2224,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work50))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work50))}</>
                             </div>
                             </div>)
                           }
@@ -2233,7 +2234,7 @@ if ( battery === 1) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work100))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work100))}</>
                           </div>
                           </div>)
                         }
@@ -2251,7 +2252,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -2261,7 +2262,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work20))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -2271,7 +2272,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stone + (module * val.work50))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stone + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -2281,7 +2282,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stone + (module * val.work100))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stone + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -2296,7 +2297,7 @@ if ( battery === 1) {
                                         <h3>Firm: {val.firm}</h3>
                                         <h3>Branch: {val.branch}</h3>
                                         <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                        <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work10))}</>
+                                        <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work10))}</>
                                       </div>
                                       </div>)
                                   }
@@ -2306,7 +2307,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.sttwo + (module * val.work20))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.sttwo + (module * val.work20))}</>
                                     </div>
                                     </div>)
                             }
@@ -2316,7 +2317,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work50))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work50))}</>
                                   </div>
                                   </div>)
                                 }
@@ -2326,7 +2327,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work100))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work100))}</>
                                 </div>
                                 </div>)
                               }
@@ -2341,7 +2342,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -2351,7 +2352,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+val.bno + val.stthree + (module * val.work20))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+val.bno + val.stthree + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -2361,7 +2362,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work50))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -2371,7 +2372,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work100))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -2386,7 +2387,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -2396,7 +2397,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stfour + (module * val.work20))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stfour + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -2406,7 +2407,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work50))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -2416,7 +2417,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work100))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -2434,7 +2435,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stone + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -2444,7 +2445,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work20))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -2454,7 +2455,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stone + (module * val.work50))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stone + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -2464,7 +2465,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work100))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -2479,7 +2480,7 @@ if ( battery === 1) {
                                         <h3>Firm: {val.firm}</h3>
                                         <h3>Branch: {val.branch}</h3>
                                         <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                        <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work10))}</>
+                                        <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work10))}</>
                                       </div>
                                       </div>)
                                   }
@@ -2489,7 +2490,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work20))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work20))}</>
                                     </div>
                                     </div>)
                             }
@@ -2499,7 +2500,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work50))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work50))}</>
                                   </div>
                                   </div>)
                                 }
@@ -2509,7 +2510,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.sttwo + (module * val.work100))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.sttwo + (module * val.work100))}</>
                                 </div>
                                 </div>)
                               }
@@ -2524,7 +2525,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stthree + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stthree + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -2534,7 +2535,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stthree + (module * val.work20))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stthree + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -2544,7 +2545,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work50))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -2554,7 +2555,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work100))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -2569,7 +2570,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -2579,7 +2580,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stfour + (module * val.work20))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stfour + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -2589,7 +2590,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stfour + (module * val.work50))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno  + val.stfour + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -2599,7 +2600,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work100))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -2617,7 +2618,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -2627,7 +2628,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stone + (module * val.work20))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stone + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -2637,7 +2638,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stone + (module * val.work50))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stone + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -2647,7 +2648,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work100))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -2662,7 +2663,7 @@ if ( battery === 1) {
                                         <h3>Firm: {val.firm}</h3>
                                         <h3>Branch: {val.branch}</h3>
                                         <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                        <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work10))}</>
+                                        <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work10))}</>
                                       </div>
                                       </div>)
                                   }
@@ -2672,7 +2673,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work20))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work20))}</>
                                     </div>
                                     </div>)
                             }
@@ -2682,7 +2683,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.sttwo + (module * val.work50))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.sttwo + (module * val.work50))}</>
                                   </div>
                                   </div>)
                                 }
@@ -2692,7 +2693,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work100))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.sttwo + (module * val.work100))}</>
                                 </div>
                                 </div>)
                               }
@@ -2707,7 +2708,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stthree + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stthree + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -2717,7 +2718,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bnor + val.stthree + (module * val.work20))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bnor + val.stthree + (module * val.work20))}</>
                                   </div>
                                   </div>)
                           }
@@ -2727,7 +2728,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work50))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stthree + (module * val.work50))}</>
                                 </div>
                                 </div>)
                               }
@@ -2737,7 +2738,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stthree + (module * val.work100))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stthree + (module * val.work100))}</>
                               </div>
                               </div>)
                             }
@@ -2752,7 +2753,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -2762,7 +2763,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work20))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work20))}</>
                                 </div>
                                 </div>)
                         }
@@ -2772,7 +2773,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work50))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stfour + (module * val.work50))}</>
                               </div>
                               </div>)
                             }
@@ -2782,7 +2783,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stfour + (module * val.work100))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stfour + (module * val.work100))}</>
                             </div>
                             </div>)
                           }
@@ -2807,7 +2808,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -2817,7 +2818,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -2827,7 +2828,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -2837,7 +2838,7 @@ if ( battery === 1) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -2852,7 +2853,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -2862,7 +2863,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -2872,7 +2873,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -2882,7 +2883,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -2897,7 +2898,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -2907,7 +2908,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -2917,7 +2918,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -2927,7 +2928,7 @@ if ( battery === 1) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -2942,7 +2943,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                           }
@@ -2952,7 +2953,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                     }
@@ -2962,7 +2963,7 @@ if ( battery === 1) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -2972,7 +2973,7 @@ if ( battery === 1) {
                           <h3>Firm: {val.firm}</h3>
                           <h3>Branch: {val.branch}</h3>
                           <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                          <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                          <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                         </div>
                         </div>)
                       }
@@ -2990,7 +2991,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -3000,7 +3001,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -3010,7 +3011,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3020,7 +3021,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3035,7 +3036,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -3045,7 +3046,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                           }
@@ -3055,7 +3056,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                               }
@@ -3065,7 +3066,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3080,7 +3081,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -3090,7 +3091,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -3100,7 +3101,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3110,7 +3111,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3125,7 +3126,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -3135,7 +3136,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -3145,7 +3146,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.byestwo + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.byestwo + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3155,7 +3156,7 @@ if ( battery === 1) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -3173,7 +3174,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wno+val.bno+ val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wno+val.bno+ val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -3183,7 +3184,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -3193,7 +3194,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3203,7 +3204,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3218,7 +3219,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -3228,7 +3229,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                           }
@@ -3238,7 +3239,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                               }
@@ -3248,7 +3249,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3263,7 +3264,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -3273,7 +3274,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -3283,7 +3284,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3293,7 +3294,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3308,7 +3309,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37 * (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno+ val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -3318,7 +3319,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -3328,7 +3329,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) +  val.wno+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3338,7 +3339,7 @@ if ( battery === 1) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wno + val.bno+ val.stone + (module * val.work10))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wno + val.bno+ val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
@@ -3356,7 +3357,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno + val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) +  val.wno + val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -3366,7 +3367,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) +  val.wno + val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) +  val.wno + val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -3376,7 +3377,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wno + val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wno + val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3386,7 +3387,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3401,7 +3402,7 @@ if ( battery === 1) {
                                       <h3>Firm: {val.firm}</h3>
                                       <h3>Branch: {val.branch}</h3>
                                       <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                     </div>
                                     </div>)
                                 }
@@ -3411,7 +3412,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                           }
@@ -3421,7 +3422,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                               }
@@ -3431,7 +3432,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3446,7 +3447,7 @@ if ( battery === 1) {
                                     <h3>Firm: {val.firm}</h3>
                                     <h3>Branch: {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                   </div>
                                   </div>)
                               }
@@ -3456,7 +3457,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                         }
@@ -3466,7 +3467,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                             }
@@ -3476,7 +3477,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno+ val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3491,7 +3492,7 @@ if ( battery === 1) {
                                   <h3>Firm: {val.firm}</h3>
                                   <h3>Branch: {val.branch}</h3>
                                   <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                                 </div>
                                 </div>)
                             }
@@ -3501,7 +3502,7 @@ if ( battery === 1) {
                                 <h3>Firm: {val.firm}</h3>
                                 <h3>Branch: {val.branch}</h3>
                                 <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                               </div>
                               </div>)
                       }
@@ -3511,7 +3512,7 @@ if ( battery === 1) {
                               <h3>Firm: {val.firm}</h3>
                               <h3>Branch: {val.branch}</h3>
                               <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                             </div>
                             </div>)
                           }
@@ -3521,7 +3522,7 @@ if ( battery === 1) {
                             <h3>Firm: {val.firm}</h3>
                             <h3>Branch: {val.branch}</h3>
                             <h3>Price : { ( 0.37* (module * (val.modPrice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
+                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.bno + val.stone + (module * val.work10))}</>
                           </div>
                           </div>)
                         }
