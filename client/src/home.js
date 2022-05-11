@@ -43,6 +43,9 @@ import Paper from '@mui/material/Paper';
 import Axios from  "axios";
 
 
+//history 
+import {useNavigate} from 'react-router-dom';
+
 
 //Postal codes
 const options = [ '12345', '14356']
@@ -157,6 +160,10 @@ const Home =() =>  {
   const [breite, setBreite] = React.useState(0);
   const [rent, setRent] = React.useState(0);
 
+  //use navigate function ]
+  let navigate = useNavigate();
+
+
 
 
 
@@ -206,7 +213,12 @@ const Home =() =>  {
   };
 
 
+  // To the installation firms page 
 
+  const handleFirmSelect = (id) => {
+     console.log(id)
+    navigate(`/firms/${id}`)
+   }
 
   
 // 57 minutes https://www.youtube.com/watch?v=ldYcgPKEZC8 not getting accurate response from the server. vague value 
@@ -583,6 +595,7 @@ if ( battery === 0) {
                                   return   (<div className="employee">
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
+                                    <button onClick={() => handleFirmSelect(val.firm) }> Teke to firm </button>
                                     <h3>Branch:  {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
                                     <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
