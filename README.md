@@ -2,7 +2,7 @@
 ### Prerequisite 
 
   Postgres
-   - client(Frontend) React [find more info]()
+   - client(Frontend) React [find more info](https://github.com/GreenHomeNow/postgres/blob/master/client/README.md)
    - server(Backend) Node.js, Postgres. [find more info]()
 
 
