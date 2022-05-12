@@ -1,6 +1,6 @@
 # postgres
 
-### Getting Started with Front End 
+### Getting Started
 
 Clone this repository using 
 ```
