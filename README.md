@@ -3,7 +3,7 @@
 
   Postgres
    - client(Frontend) React [find more info](https://github.com/GreenHomeNow/postgres/blob/master/client/README.md)
-   - server(Backend) Node.js, Postgres. [find more info]()
+   - server(Backend) Node.js, Postgres. [find more info](https://github.com/GreenHomeNow/postgres/tree/master/server)
 
 
 ### Getting Started
