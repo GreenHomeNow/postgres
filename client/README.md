@@ -21,7 +21,7 @@ Other node packages used
 
 |used| used for| link to docks|
 |----|---------|--------------|
-| useNavigate | After suggesting installations firms we will redirect user to installation firms page using useNavigate | [link](https://reactrouter.com/docs/en/v6/upgrading/v5#use-usenavigate-instead-of-usehistory) |
+| useNavigate | After suggesting installations firms we will redirect user to installation firms page using useNavigate | [Link](https://reactrouter.com/docs/en/v6/upgrading/v5#use-usenavigate-instead-of-usehistory) |
 | useContext | Used for storing the values fetched from the backend to the firms object | [Link](https://reactjs.org/docs/context.html) |
 
 ```
