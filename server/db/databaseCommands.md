@@ -22,7 +22,7 @@
 |work50| int|Calculating price for workers if the modules are below 50|
 |work100| int|Calculating price for workers if the modules are greater than 100|
 |postal| [int] | array of all postal codes where the firms operate |
-|Scaffold| int | |
+|Scaffold| int | The structure needed to install the solar panels |
 
 
 ## Postgres commands 
