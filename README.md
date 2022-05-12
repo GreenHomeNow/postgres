@@ -13,7 +13,7 @@ Clone this repository using
 git clone https://github.com/GreenHomeNow/postgres.git
 ```
 
-Navigate to the _/postgres_ folder and install all libraries using 
+Navigate to the **_/postgres_** folder and install all libraries using 
 
 ```
 npm install 
