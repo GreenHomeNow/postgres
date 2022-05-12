@@ -1,4 +1,4 @@
-## We have create a table using following fields.
+## Table with all the data fields.
 
 |Field Name| datatype   | description                                    |
 |----------|------------|------------------------------------------------|
