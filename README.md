@@ -1,4 +1,10 @@
 # postgres
+### Prerequisite 
+
+  Postgres
+   - client(Frontend) React  
+   - server(Backend) Node.js, Postgres.
+
 
 ### Getting Started
 
