@@ -21,4 +21,8 @@ Other node packages used
 ```
 npm install react-router-dom@6
 ```
+  2. [Axios](https://axios-http.com/docs/intro)
+```
+npm install axios
+```
 
