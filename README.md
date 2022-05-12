@@ -1,10 +1,11 @@
 # postgres
 
+### Getting Started with Front End 
 
-## Frontend Docs 
+Clone this repository using 
+```
+git clone https://github.com/GreenHomeNow/postgres.git
+```
 
 
-## Backend Docs 
 
-
-## SQl table Docs 
