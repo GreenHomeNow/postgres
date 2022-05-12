@@ -16,7 +16,7 @@ npm install react-bootstrap bootstrap@5.1.3
 
 Other node packages used 
 
-  1. React Router DOM version 6
+  1. React Router DOM [version 6](https://reactrouter.com/docs/en/v6/getting-started/overview)
 
 ```
 npm install react-router-dom@6
