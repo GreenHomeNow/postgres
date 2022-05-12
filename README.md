@@ -2,8 +2,8 @@
 ### Prerequisite 
 
   Postgres
-   - client(Frontend) React  
-   - server(Backend) Node.js, Postgres.
+   - client(Frontend) React [find more info]()
+   - server(Backend) Node.js, Postgres. [find more info]()
 
 
 ### Getting Started
