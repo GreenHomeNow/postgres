@@ -18,8 +18,8 @@ Other node packages used
 
   1. React Router DOM [version 6](https://reactrouter.com/docs/en/v6/getting-started/overview)
 |used| used for| link to docks|
-|----|---|-----|
-|useNavigate| After suggesting installations firms we will redirect user to installation firms page using useNavigate| [link](https://reactrouter.com/docs/en/v6/upgrading/v5#use-usenavigate-instead-of-usehistory)|
+|----|---------|--------------|
+| useNavigate | After suggesting installations firms we will redirect user to installation firms page using useNavigate | [link](https://reactrouter.com/docs/en/v6/upgrading/v5#use-usenavigate-instead-of-usehistory) |
 
 ```
 npm install react-router-dom@6
