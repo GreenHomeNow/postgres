@@ -1,6 +1,6 @@
 ### Getting Started
 
-For UI components MUI v6
+For UI components [MUI v6](https://mui.com)
 
 ```
 npm install @mui/material @emotion/react @emotion/styled
