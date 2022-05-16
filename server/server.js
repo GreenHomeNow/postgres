@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 const db = require("./db");
-const morgan = require("morgan");
+//const morgan = require("morgan");
 
 
 const app = express();
@@ -13,9 +13,6 @@ app.use(express.json());
 
 // Route 1) Get all firms data 
 app.get("/api/v1/firms", async (req,res) => {
-
-  
-
     try{
 
         const results = await db.query("SELECT * FROM test;");
@@ -26,16 +23,11 @@ app.get("/api/v1/firms", async (req,res) => {
         status: "success",
         data: {
             firms: results.rows,
-        },
-    
+        },   
     });
-ß
     }catch (err) {
         console.log(err);
     }
-
-    
-
 });
 
 
@@ -55,8 +47,8 @@ app.get("/api/v1/firms/:postal",  async (req,res) => {
         status: "success",
         data: {
             firms: results.rows,
-        },
-    
+       firms: results.rows
+        },   
     });
   } 
   catch(err) {
@@ -66,13 +58,58 @@ app.get("/api/v1/firms/:postal",  async (req,res) => {
 });
 
 
-// logging port number
+//Route 3) getting a single installation firm after table to book
+app.get("/api/v1/firms/id/:firmID", async (req, res) => {
 
+    console.log("we are going to fetch"+ req.params);
+
+    try {
+        //parameterised query to avoid sql injection attack      
+           const results = await db.query (`select * from test where ${req.params.postal} = any(postal)`);
+       
+           res.send(results);
+           console.log("we are in route 3 to only get one installation firm");
+           res.json(200).json({
+               status: "success",
+               data: {
+                   firms: results.rows,
+              firms: results.rows
+               },   
+           });
+         } 
+         catch(err) {
+             console.log(err)
+         }
+
+});
+
+
+
+//Route 4: Writting Customer offer data on the new Customer Table 
+
+app.post("/api/v1/frims", async (req, res) =>{
+    try {
+        const results = await db.query("INSERT INTO test(priceid, firm, branch, modprice, uc, wno, wyes, byesone, byestwo, byesthree,byesfour, stone, sttwo, stthree, stfour, work10, work20, work50, work100, scaffold, postal) values($1,$2,$3,$4, $5, $6, $7, $8, $9,$10, $11,$12,$13,$14,$15, $16,$17, $18,$19, $20, $21) returning *" [req.body.priceid, req.body.firm, req.body.branch, req.body.modprice, req.body.uc, req.body.wno, req.body.wyes, req.body.byesone, req.body.byestwo, req.body.byesthree, req.body.byesfour, req.body.stone, req.body.sttwo, req.body.stthree, req.body.stfour, req.body.work10, req.body.work20, req.body.work50, req.body.work100,req.body.postal, req.body.scaffold] );
+   console.log(results) 
+    } catch(err) {
+        console.log(err)
+    }
+});
+
+
+app.post("/api/v1/customers", async (req, res) => {
+    try {
+        const results = await db.query("INSERT INTO customer(name, contact, email) values($1,$2, $3) returning *" [req.params.name, req.params.contact, req.params.email])
+        console.log(results)
+    } catch (err) {
+        console.log(err)
+    }
+})
+
+// Route 0) logging port number
 const port = 3006;
 app.listen(port, () =>
 {
     console.log(`we are running on port ${port}`);
-
-
     
 });
