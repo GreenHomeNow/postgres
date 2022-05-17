@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 const db = require("./db");
+const { response } = require("express");
 //const morgan = require("morgan");
 
 
@@ -97,10 +98,11 @@ app.post("/api/v1/frims", async (req, res) =>{
 });
 
 
-app.post("/api/v1/customers", async (req, res) => {
+app.post("/api/v1/firms/", async (req, res) => {
+    console.log("we are in customer route")
     try {
-        const results = await db.query("INSERT INTO customer(name, contact, email) values($1,$2, $3) returning *" [req.params.name, req.params.contact, req.params.email])
-        console.log(results)
+        const results = await db.query("INSERT INTO customer(name, contact, email) values($1,$2, $3) returning *", [req.params.name, req.params.contact, req.params.email]);
+        
     } catch (err) {
         console.log(err)
     }

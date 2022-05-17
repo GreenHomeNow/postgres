@@ -6,14 +6,14 @@
    - server(Backend) Node.js, Postgres. [find more info](https://github.com/GreenHomeNow/postgres/tree/master/server)
 
 
-### Getting Started
+### Getting Started :
 
-Clone this repository using 
+1. Clone this repository using 
 ```
 git clone https://github.com/GreenHomeNow/postgres.git
 ```
 
-Navigate to the **_/postgres_** folder and install all libraries using 
+Navigate to the **_/postgres_** folder and install all libraries using.
 
 ```
 npm install 

@@ -1,5 +1,5 @@
 
-import React , {useEffect, useContext, useState}  from "react";
+import React , {useEffect, useContext, useState} from "react";
 import firmsFinder from "./apis/firmsFinder";
 import { FirmsContext } from "./context/firmsContext";
 import { styled } from '@mui/material/styles';
@@ -146,10 +146,28 @@ const Home =() =>  {
   //year 
   const [year, setYear] = React.useState('');
 
-  //Random 3 prices 
-  const [price, setPrice] =  React.useState(0);
-  const [price1, setPrice1] = React.useState(0);
-  const [price2, setPrice2] = React.useState(0);
+  //Writting Data on the main table firms  
+  const [priceid, setpriceid] =  React.useState(4);
+  const [firm, setfirm] = React.useState('firma name');
+  const [branch, setbranch] = React.useState('firm branch');
+  const [modprice, setmodprice] = React.useState(0);
+  const [uc, setuc] = React.useState(0);
+  const [wno, setwno] = React.useState(0);
+  const [wyes, setwyes] = React.useState(0);
+  const [byesone, setbyesone] = React.useState(0);
+  const [byestwo, setbyestwo] = React.useState(0);
+  const [byesthree, setbyesthree] = React.useState(0);
+  const [byesfour, setbyesfour] = React.useState(0);
+  const [stone, setstone] = React.useState(0);
+  const [sttwo, setsttwo] = React.useState(0);
+  const [stthree, setstthree] = React.useState(0);
+  const [stfour, setstfour] = React.useState(0);
+  const [work10, setwork10] = React.useState(0);
+  const [work20, setwork20] = React.useState(0);
+  const [work50, setwork50] = React.useState(0);
+  const [work100, setwork100] = React.useState(0);
+  const [postalpush, setPostalpush] = React.useState([0,2,5]);
+  const [scaffold, setscaffold] = React.useState(0);
 
   //variables for calculation functions module & size 
   const [module, setModule] = React.useState(0);
@@ -159,6 +177,14 @@ const Home =() =>  {
   const [hohe, setHohe] = React.useState(0);
   const [breite, setBreite] = React.useState(0);
   const [rent, setRent] = React.useState(0);
+
+
+  //variables for customer data table 
+  const [name, setName] = React.useState('akshay');
+  const [contact, setContact] = React.useState('akshay');
+  const [email, setEmail] = React.useState('akshay');
+
+
 
   //use navigate function ]
   let navigate = useNavigate();
@@ -214,7 +240,6 @@ const Home =() =>  {
 
 
   // To the installation firms page 
-
   const handleFirmSelect = (id) => {
      console.log(id)
     navigate(`/firms/${id}`)
@@ -225,11 +250,7 @@ const Home =() =>  {
 // 6 hour tutorial https://www.youtube.com/watch?v=J01rYl9T3BU
 
 
-
-
-
-  // create a state and provide postal code here 
-  
+  // create a state and provide postal code here   
     const getEmployee = async () => {
     try {
     const response = await firmsFinder.get(`/${inputValue}`);
@@ -241,6 +262,62 @@ const Home =() =>  {
         
   };
 
+// Writting data to the table 
+const handleSubmitfirms = async (e) => {
+  e.preventDefault();
+   
+  try {
+    const response = await firmsFinder.post("/", {
+
+      priceid,
+      firm,
+      branch,
+      modprice,
+      uc,
+      wno,
+      wyes,
+      byesone,
+      byestwo,
+      byesthree,
+      byesfour,
+      stone,
+      sttwo,
+      stthree,
+      stfour,
+      work10,
+      work20,
+      work50,
+      work100,
+      postal: postalpush,
+      scaffold
+
+    })
+    console.log(response)
+  }catch (err){
+    console.log(err)
+  }
+
+}
+
+// Writting data into customer table
+const handleSubmitCustomer = async (e) => {
+  e.preventDefault();
+console.log("request is sent to the server")
+  try{
+    console.log("try started");
+    const response = await firmsFinder.post("/", {
+      name,
+      contact,
+      email
+
+    })
+    console.log(response.data.data)
+    
+  } catch (err) {
+    console.log(err)
+   
+  }
+}
 
 
 
@@ -551,6 +628,7 @@ const Home =() =>  {
 
 
     <Button onClick={getEmployee}>Calulate</Button>
+    <Button onClick={handleSubmitCustomer}>put data to table</Button>
 
  
     
