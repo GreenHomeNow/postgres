@@ -88,7 +88,7 @@ app.get("/api/v1/firms/id/:firmID", async (req, res) => {
 
 //Route 4: Writting Customer offer data on the new Customer Table 
 
-app.post("/api/v1/frims", async (req, res) =>{
+app.post("/api/v1/frims/", async (req, res) =>{
     try {
         const results = await db.query("INSERT INTO test(priceid, firm, branch, modprice, uc, wno, wyes, byesone, byestwo, byesthree,byesfour, stone, sttwo, stthree, stfour, work10, work20, work50, work100, scaffold, postal) values($1,$2,$3,$4, $5, $6, $7, $8, $9,$10, $11,$12,$13,$14,$15, $16,$17, $18,$19, $20, $21) returning *" [req.body.priceid, req.body.firm, req.body.branch, req.body.modprice, req.body.uc, req.body.wno, req.body.wyes, req.body.byesone, req.body.byestwo, req.body.byesthree, req.body.byesfour, req.body.stone, req.body.sttwo, req.body.stthree, req.body.stfour, req.body.work10, req.body.work20, req.body.work50, req.body.work100,req.body.postal, req.body.scaffold] );
    console.log(results) 
@@ -100,9 +100,10 @@ app.post("/api/v1/frims", async (req, res) =>{
 
 app.post("/api/v1/firms/", async (req, res) => {
     console.log("we are in customer route")
+    console.log(req.body.name)
     try {
-        const results = await db.query("INSERT INTO customer(name, contact, email) values($1,$2, $3) returning *", [req.params.name, req.params.contact, req.params.email]);
-        
+        const results = await db.query("INSERT INTO customer(name, contact, email) values($1,$2, $3) returning *", [req.body.name, req.body.contact, req.body.email]);
+     
     } catch (err) {
         console.log(err)
     }

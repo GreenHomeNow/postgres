@@ -3697,4 +3697,5 @@ if ( battery === 1) {
 
 }
 
+
 export default Home
