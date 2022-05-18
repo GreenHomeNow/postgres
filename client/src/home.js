@@ -180,7 +180,7 @@ const Home =() =>  {
 
 
   //variables for customer data table 
-  const [name, setName] = React.useState('akshay');
+  const [name, setName] = useState("Akshay Devkate");
   const [contact, setContact] = React.useState('akshay');
   const [email, setEmail] = React.useState('akshay');
 
@@ -305,13 +305,15 @@ const handleSubmitCustomer = async (e) => {
 console.log("request is sent to the server")
   try{
     console.log("try started");
+    console.log(name)
+    console.log(email)
     const response = await firmsFinder.post("/", {
-      name,
-      contact,
-      email
+      name: name ,
+      contact: name,
+      email: email
 
-    })
-    console.log(response.data.data)
+    });
+    console.log(response.data.rows)
     
   } catch (err) {
     console.log(err)
@@ -3696,6 +3698,5 @@ if ( battery === 1) {
   );
 
 }
-
 
 export default Home
