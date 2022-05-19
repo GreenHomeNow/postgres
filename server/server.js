@@ -102,7 +102,7 @@ app.post("/api/v1/firms/", async (req, res) => {
     console.log("we are in customer route")
     console.log(req.body.name)
     try {
-        const results = await db.query("INSERT INTO customer(name, contact, email) values($1,$2, $3) returning *", [req.body.name, req.body.contact, req.body.email]);
+        const results = await db.query("INSERT INTO cusTest(customername, cusemail,  cusstreetname, cushousenumber, cuspostalcode, cususage, cuswallbox, cusbattery, cusstromzahler, cusmodules, cusbranchselected, cuspriceoffered, custime) values($1,$2, $3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) returning *", [req.body.customername, req.body.cusemail, req.bodycusstreetname, req.body.cushousenumber, req.body.cuspostalcode, req.body.cususage, req.body.cuswallbox, req.body.cusbattery, req.body.cusstromzahler, req.body.cusmodules, req.body.cusbranchselected, req.body.cuspriceoffered, req.body.custime]);
      
     } catch (err) {
         console.log(err)
