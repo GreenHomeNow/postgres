@@ -2,7 +2,7 @@
 
 #### Table 1 Installation Firms 
 
-|Field Name| datatype   | description                                    |
+|Field Name| Datatype   | Description                                    |
 |----------|------------|------------------------------------------------|
 | priceid  | int        | Unique number to identify column autoincrement |
 |   firm   | varchar    | Name of installation firm                      |
