@@ -27,6 +27,10 @@
 |Scaffold| int | The structure needed to install the solar panels |
 
 
+#### Table 2 Customer Table 
+
+
+
 ## Postgres commands 
 
 1. Create database 
