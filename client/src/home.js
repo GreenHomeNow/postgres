@@ -30,18 +30,6 @@ import Box from '@mui/material/Box';
 //Slider 
 import Slider from '@mui/material/Slider';
 
-//Result Table
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-
-//Axios 
-import Axios from  "axios";
-
 
 //history 
 import {useNavigate} from 'react-router-dom';
@@ -50,7 +38,7 @@ import {useNavigate} from 'react-router-dom';
 //Postal codes
 const options = [ '12345', '14356']
 
-// drop down
+// ---------------------------- drop down MUI 6 --------------------------------------------------- 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -127,9 +115,13 @@ const PrettoSlider = styled(Slider)({
   },
 });
 
+// --------------------------- drop down end ---------------------------------------------//
 
-//All state and new state variables
+//------------------------ All states and new state variables ---------------------------//
+
 const Home =() =>  {
+
+  // Drop Down state
   const [expanded, setExpanded] = React.useState('panel1');
 
   //Declare a new state variable, which we'll call "count"
@@ -180,24 +172,35 @@ const Home =() =>  {
 
 
   //variables for customer data table 
-  const [name, setName] = useState("Akshay Devkate");
-  const [contact, setContact] = React.useState('akshay');
-  const [email, setEmail] = React.useState('akshay');
-
-
+  const [customername, setCustomerName] = React.useState('');
+  const [cusemail, setCusEmail] = React.useState('');
+  const [cusstreetname, setCusStreetname] = React.useState('');
+  const [cushousenumber, setCusHouseNumber] = React.useState('');
+  const [cuspostalcode, setCusPostalCode] = React.useState('');
+  const [cususage, setCusUsage] = React.useState('');
+  const [cuswallbox, setCusWallbox] = React.useState('');
+  const [cusbattery, setCusBattery] = React.useState('');
+  const [cusstromzahler, setCusStromzahler] = React.useState('');
+  const [cusmodules, setCusModules] = React.useState('');
+  const [cusbranchselected, setCusBranchSelected] = React.useState('');
+  const [cuspriceoffered, setCusPriceOffered] = React.useState('');
+  const [custime, setCusTimeoffered] = React.useState('');
 
   //use navigate function ]
   let navigate = useNavigate();
-
-
-
-
 
   //Installation firms 
   const [employeeList, setEmployeelist] = useState([]);
 
   const {firms, setFirms} = useContext(FirmsContext);
   const [postal, setPostal] = React.useState(14356);
+
+  // for getting current date
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+
+  //-------------- Handle state change and other functions ---------------------//
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -245,6 +248,22 @@ const Home =() =>  {
     navigate(`/firms/${id}`)
    }
 
+   //Change functions for customer table 
+   const handleCustomerName =(event) => {
+    setCustomerName(event.target.value);
+  }; 
+
+  const handleCusEmail =(event) => {
+    setCusEmail(event.target.value);
+  }; 
+
+  const handleCusHouseNumber =(event) => {
+    setCusHouseNumber(event.target.value);
+  }; 
+
+  const handleCusStreetName =(event) => {
+    setCusStreetname(event.target.value);
+  }; 
   
 // 57 minutes https://www.youtube.com/watch?v=ldYcgPKEZC8 not getting accurate response from the server. vague value 
 // 6 hour tutorial https://www.youtube.com/watch?v=J01rYl9T3BU
@@ -303,17 +322,36 @@ const handleSubmitfirms = async (e) => {
 const handleSubmitCustomer = async (e) => {
   e.preventDefault();
 console.log("request is sent to the server")
+
+setCusTimeoffered(date);
+setCusUsage(usage);
+setCusWallbox(wallbox)
+setCusBattery(battery);
+setCusModules(module);
+setCusPostalCode(postal)
   try{
     console.log("try started");
-    console.log(name)
-    console.log(email)
+   
+    console.log(date)
+    console.log(cusemail)
+   
     const response = await firmsFinder.post("/", {
-      name: name ,
-      contact: name,
-      email: email
+     customername: customername,
+     cusemail: cusemail,
+     cusstreetname: cusstreetname,
+     cushousenumber:cushousenumber,
+     cuspostalcode: cuspostalcode,
+     cususage:cususage,
+     cuswallbox: cuswallbox,
+     cusbattery: cusbattery,
+     cusstromzahler: cusstromzahler,
+     cusmodules: cusmodules,
+     cusbranchselected: cusbranchselected,
+     cuspriceoffered: cuspriceoffered,
+     custime: custime
 
     });
-    console.log(response.data.rows)
+    console.log(response)
     
   } catch (err) {
     console.log(err)
@@ -675,10 +713,22 @@ if ( battery === 0) {
                                   return   (<div className="employee">
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
-                                    <button onClick={() => handleFirmSelect(val.firm) }> Teke to firm </button>
+                                  
                                     <h3>Branch:  {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
                                     <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                    <button onClick={() => {
+
+                                                setCusTimeoffered(date);
+                                                setCusUsage(usage);
+                                                setCusWallbox(wallbox)
+                                                setCusBattery(battery);
+                                                setCusModules(module)
+                                                setCusBranchSelected(val.firm)
+                                                setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10));
+                                                setCusPostalCode(postal)
+
+                                                } }> Teke to firm </button>
                                   </div>
                                   </div>)
                               }
@@ -3649,11 +3699,13 @@ if ( battery === 1) {
       <AccordionDetails>
         <Typography>  
 
+       <>
        
             <TextField
               placeholder="Name"
               label="Name"
               margin="normal"
+              onClick={handleCustomerName}
               fullWidth
               required
             />
@@ -3661,25 +3713,40 @@ if ( battery === 1) {
             <TextField
               placeholder="E-mail"
               label="E-mail"
+              
+              margin="normal"
+              onClick={handleCusEmail}
+              fullWidth
+              required
+            />
+            <br />
+            <TextField
+              placeholder="House Number"
+              label="house number"
+            
+              onClick={handleCusHouseNumber}
               margin="normal"
               fullWidth
               required
             />
             <br />
             <TextField
-              placeholder="Phone Number"
-              label="Phone"
+              placeholder="Street Name"
+              label="Customer Street Name"
+              onClick={handleCusStreetName}
               margin="normal"
               fullWidth
-              required
+              
             />
             <br />
-        
       
 
       <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={handleChange('panel6')}>
         Weiter
       </Button>
+
+      <Button onClick={handleSubmitCustomer}>put data to table</Button>
+</>
 
 
         </Typography>
