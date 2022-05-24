@@ -1,5 +1,7 @@
 ## Table with all the data fields.
 
+#### Table 1 Installation Firms 
+
 |Field Name| datatype   | description                                    |
 |----------|------------|------------------------------------------------|
 | priceid  | int        | Unique number to identify column autoincrement |
@@ -23,6 +25,10 @@
 |work100| int|Calculating price for workers if the modules are greater than 100|
 |postal| [int] | array of all postal codes where the firms operate |
 |Scaffold| int | The structure needed to install the solar panels |
+
+
+#### Table 2 Customer Table 
+
 
 
 ## Postgres commands 

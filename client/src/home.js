@@ -115,9 +115,9 @@ const PrettoSlider = styled(Slider)({
   },
 });
 
-// --------------------------- drop down end -----------------------------------------
+// --------------------------- drop down end ---------------------------------------------//
 
-//------------------------ All states and new state variables --------------------------
+//------------------------ All states and new state variables ---------------------------//
 
 const Home =() =>  {
 
@@ -195,6 +195,13 @@ const Home =() =>  {
   const {firms, setFirms} = useContext(FirmsContext);
   const [postal, setPostal] = React.useState(14356);
 
+  // for getting current date
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+
+  //-------------- Handle state change and other functions ---------------------//
+
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -241,6 +248,22 @@ const Home =() =>  {
     navigate(`/firms/${id}`)
    }
 
+   //Change functions for customer table 
+   const handleCustomerName =(event) => {
+    setCustomerName(event.target.value);
+  }; 
+
+  const handleCusEmail =(event) => {
+    setCusEmail(event.target.value);
+  }; 
+
+  const handleCusHouseNumber =(event) => {
+    setCusHouseNumber(event.target.value);
+  }; 
+
+  const handleCusStreetName =(event) => {
+    setCusStreetname(event.target.value);
+  }; 
   
 // 57 minutes https://www.youtube.com/watch?v=ldYcgPKEZC8 not getting accurate response from the server. vague value 
 // 6 hour tutorial https://www.youtube.com/watch?v=J01rYl9T3BU
@@ -299,9 +322,18 @@ const handleSubmitfirms = async (e) => {
 const handleSubmitCustomer = async (e) => {
   e.preventDefault();
 console.log("request is sent to the server")
+
+setCusTimeoffered(date);
+setCusUsage(usage);
+setCusWallbox(wallbox)
+setCusBattery(battery);
+setCusModules(module);
+setCusPostalCode(postal)
   try{
     console.log("try started");
    
+    console.log(date)
+    console.log(cusemail)
    
     const response = await firmsFinder.post("/", {
      customername: customername,
@@ -681,12 +713,22 @@ if ( battery === 0) {
                                   return   (<div className="employee">
                                   <div>
                                     <h3>Firm: {val.firm}</h3>
-                                    <button onClick={() => {
-                                     
-                                    } }> Teke to firm </button>
+                                  
                                     <h3>Branch:  {val.branch}</h3>
                                     <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
                                     <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
+                                    <button onClick={() => {
+
+                                                setCusTimeoffered(date);
+                                                setCusUsage(usage);
+                                                setCusWallbox(wallbox)
+                                                setCusBattery(battery);
+                                                setCusModules(module)
+                                                setCusBranchSelected(val.firm)
+                                                setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10));
+                                                setCusPostalCode(postal)
+
+                                                } }> Teke to firm </button>
                                   </div>
                                   </div>)
                               }
@@ -3657,11 +3699,13 @@ if ( battery === 1) {
       <AccordionDetails>
         <Typography>  
 
+       <>
        
             <TextField
               placeholder="Name"
               label="Name"
               margin="normal"
+              onClick={handleCustomerName}
               fullWidth
               required
             />
@@ -3669,25 +3713,40 @@ if ( battery === 1) {
             <TextField
               placeholder="E-mail"
               label="E-mail"
+              
+              margin="normal"
+              onClick={handleCusEmail}
+              fullWidth
+              required
+            />
+            <br />
+            <TextField
+              placeholder="House Number"
+              label="house number"
+            
+              onClick={handleCusHouseNumber}
               margin="normal"
               fullWidth
               required
             />
             <br />
             <TextField
-              placeholder="Phone Number"
-              label="Phone"
+              placeholder="Street Name"
+              label="Customer Street Name"
+              onClick={handleCusStreetName}
               margin="normal"
               fullWidth
-              required
+              
             />
             <br />
-        
       
 
       <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={handleChange('panel6')}>
         Weiter
       </Button>
+
+      <Button onClick={handleSubmitCustomer}>put data to table</Button>
+</>
 
 
         </Typography>
