@@ -172,10 +172,10 @@ const Home =() =>  {
 
 
   //variables for customer data table 
-  const [customername, setCustomerName] = React.useState('');
-  const [cusemail, setCusEmail] = React.useState('');
-  const [cusstreetname, setCusStreetname] = React.useState('');
-  const [cushousenumber, setCusHouseNumber] = React.useState('');
+  const [customername, setCustomerName] = React.useState("");
+  const [cusemail, setCusEmail] = React.useState("");
+  const [cusstreetname, setCusStreetname] = React.useState("");
+  const [cushousenumber, setCusHouseNumber] = React.useState("");
   const [cuspostalcode, setCusPostalCode] = React.useState('');
   const [cususage, setCusUsage] = React.useState('');
   const [cuswallbox, setCusWallbox] = React.useState('');
@@ -3701,43 +3701,53 @@ if ( battery === 1) {
 
        <>
        
+         
             <TextField
-              placeholder="Name"
-              label="Name"
-              margin="normal"
-              onClick={handleCustomerName}
-              fullWidth
-              required
-            />
+          id="outlined-multiline-flexible"
+          label="Name"
+          multiline
+          maxRows={4}
+          value={customername}
+          onChange={handleCustomerName}
+          fullWidth
+          required
+        />
+
+      
+                <TextField
+          id="outlined-multiline-flexible"
+          label="Email"
+          multiline
+          maxRows={4}
+          value={cusemail}
+          onChange={handleCusEmail}
+          fullWidth
+          required
+        />
             <br />
-            <TextField
-              placeholder="E-mail"
-              label="E-mail"
-              
-              margin="normal"
-              onClick={handleCusEmail}
-              fullWidth
-              required
-            />
+        
+                <TextField
+          id="outlined-multiline-flexible"
+          label="House Number"
+          multiline
+          maxRows={4}
+          value={customername}
+          onChange={handleCusHouseNumber}
+          fullWidth
+          required
+        />
             <br />
-            <TextField
-              placeholder="House Number"
-              label="house number"
-            
-              onClick={handleCusHouseNumber}
-              margin="normal"
-              fullWidth
-              required
-            />
-            <br />
-            <TextField
-              placeholder="Street Name"
-              label="Customer Street Name"
-              onClick={handleCusStreetName}
-              margin="normal"
-              fullWidth
-              
-            />
+         
+                <TextField
+          id="outlined-multiline-flexible"
+          label="Street Name"
+          multiline
+          maxRows={4}
+          value={customername}
+          onChange={handleCusStreetName}
+          fullWidth
+          required
+        />
             <br />
       
 
