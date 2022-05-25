@@ -1,5 +1,4 @@
-
-import React , {useEffect, useContext, useState} from "react";
+import React , {useEffect, useContext, useState}  from "react";
 import firmsFinder from "./apis/firmsFinder";
 import { FirmsContext } from "./context/firmsContext";
 import { styled } from '@mui/material/styles';
@@ -22,13 +21,34 @@ import Autocomplete from '@mui/material/Autocomplete';
 
 //Weiter Button 
 import Button from '@mui/material/Button';
+
 import SendIcon from '@mui/icons-material/Send';
+
+//info modal popperover
+import Popover from '@mui/material/Popover';
+
+
+//Info Button
+import { Modal } from "@mui/material";
+import InfoIcon from '@mui/icons-material/Info';
 
 //Text Field
 import Box from '@mui/material/Box';
 
 //Slider 
 import Slider from '@mui/material/Slider';
+
+//Result Table
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+
+//Axios 
+import Axios from  "axios";
 
 
 //history 
@@ -38,7 +58,7 @@ import {useNavigate} from 'react-router-dom';
 //Postal codes
 const options = [ '12345', '14356']
 
-// ---------------------------- drop down MUI 6 --------------------------------------------------- 
+// drop down
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -115,14 +135,31 @@ const PrettoSlider = styled(Slider)({
   },
 });
 
-// --------------------------- drop down end ---------------------------------------------//
 
-//------------------------ All states and new state variables ---------------------------//
 
+//All state and new state variables
 const Home =() =>  {
+  //Popper functions
+  const [anchorEl, setAnchorEl] = React.useState([null, 1, 2, 3, 4, 5, 6, 7 ,8, 9]);
 
-  // Drop Down state
-  const [expanded, setExpanded] = React.useState('panel1');
+  const handleClickP = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseP = () => {
+    setAnchorEl(null);
+  };
+
+  const openPopper = Boolean(anchorEl);
+  const id = openPopper ? 'simple-popover' : undefined;
+
+  // Dropdown the stages
+  const [expanded, setExpanded] = React.useState(1);
+
+  //Modal functions
+  //const [open, setOpen] = React.useState(false);
+  //const handleOpen = () => setOpen(true);
+  //const handleClose = () => setOpen(false);
 
   //Declare a new state variable, which we'll call "count"
   const [city, setCity] = React.useState(options[0]);
@@ -138,28 +175,10 @@ const Home =() =>  {
   //year 
   const [year, setYear] = React.useState('');
 
-  //Writting Data on the main table firms  
-  const [priceid, setpriceid] =  React.useState(4);
-  const [firm, setfirm] = React.useState('firma name');
-  const [branch, setbranch] = React.useState('firm branch');
-  const [modprice, setmodprice] = React.useState(0);
-  const [uc, setuc] = React.useState(0);
-  const [wno, setwno] = React.useState(0);
-  const [wyes, setwyes] = React.useState(0);
-  const [byesone, setbyesone] = React.useState(0);
-  const [byestwo, setbyestwo] = React.useState(0);
-  const [byesthree, setbyesthree] = React.useState(0);
-  const [byesfour, setbyesfour] = React.useState(0);
-  const [stone, setstone] = React.useState(0);
-  const [sttwo, setsttwo] = React.useState(0);
-  const [stthree, setstthree] = React.useState(0);
-  const [stfour, setstfour] = React.useState(0);
-  const [work10, setwork10] = React.useState(0);
-  const [work20, setwork20] = React.useState(0);
-  const [work50, setwork50] = React.useState(0);
-  const [work100, setwork100] = React.useState(0);
-  const [postalpush, setPostalpush] = React.useState([0,2,5]);
-  const [scaffold, setscaffold] = React.useState(0);
+  //Random 3 prices 
+  const [price, setPrice] =  React.useState(0);
+  const [price1, setPrice1] = React.useState(0);
+  const [price2, setPrice2] = React.useState(0);
 
   //variables for calculation functions module & size 
   const [module, setModule] = React.useState(0);
@@ -170,37 +189,41 @@ const Home =() =>  {
   const [breite, setBreite] = React.useState(0);
   const [rent, setRent] = React.useState(0);
 
+   //variables for customer data table 
+   const [customername, setCustomerName] = React.useState("");
+   const [cusemail, setCusEmail] = React.useState("");
+   const [cusstreetname, setCusStreetname] = React.useState("");
+   const [cushousenumber, setCusHouseNumber] = React.useState("");
+   const [cuspostalcode, setCusPostalCode] = React.useState('');
+   const [cususage, setCusUsage] = React.useState('');
+   const [cuswallbox, setCusWallbox] = React.useState('');
+   const [cusbattery, setCusBattery] = React.useState('');
+   const [cusstromzahler, setCusStromzahler] = React.useState('');
+   const [cusmodules, setCusModules] = React.useState('');
+   const [cusbranchselected, setCusBranchSelected] = React.useState('');
+   const [cuspriceoffered, setCusPriceOffered] = React.useState('');
+   const [custime, setCusTimeoffered] = React.useState('');
 
-  //variables for customer data table 
-  const [customername, setCustomerName] = React.useState("");
-  const [cusemail, setCusEmail] = React.useState("");
-  const [cusstreetname, setCusStreetname] = React.useState("");
-  const [cushousenumber, setCusHouseNumber] = React.useState("");
-  const [cuspostalcode, setCusPostalCode] = React.useState('');
-  const [cususage, setCusUsage] = React.useState('');
-  const [cuswallbox, setCusWallbox] = React.useState('');
-  const [cusbattery, setCusBattery] = React.useState('');
-  const [cusstromzahler, setCusStromzahler] = React.useState('');
-  const [cusmodules, setCusModules] = React.useState('');
-  const [cusbranchselected, setCusBranchSelected] = React.useState('');
-  const [cuspriceoffered, setCusPriceOffered] = React.useState('');
-  const [custime, setCusTimeoffered] = React.useState('');
+    // for getting current date
+  const current = new Date();
+  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
   //use navigate function ]
   let navigate = useNavigate();
+
+
+  // CLose the current dropdown and open the next one
+  const nextChange = () => {
+    setExpanded(expanded + 1 )
+  }
+
+  
 
   //Installation firms 
   const [employeeList, setEmployeelist] = useState([]);
 
   const {firms, setFirms} = useContext(FirmsContext);
   const [postal, setPostal] = React.useState(14356);
-
-  // for getting current date
-  const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-
-
-  //-------------- Handle state change and other functions ---------------------//
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -243,82 +266,32 @@ const Home =() =>  {
 
 
   // To the installation firms page 
+
   const handleFirmSelect = (id) => {
      console.log(id)
     navigate(`/firms/${id}`)
    }
 
-   //Change functions for customer table 
-   const handleCustomerName =(event) => {
-    setCustomerName(event.target.value);
-  }; 
 
-  const handleCusEmail =(event) => {
-    setCusEmail(event.target.value);
-  }; 
-
-  const handleCusHouseNumber =(event) => {
-    setCusHouseNumber(event.target.value);
-  }; 
-
-  const handleCusStreetName =(event) => {
-    setCusStreetname(event.target.value);
-  }; 
+     //Change functions for customer table 
+     const handleCustomerName =(event) => {
+      setCustomerName(event.target.value);
+    }; 
   
-// 57 minutes https://www.youtube.com/watch?v=ldYcgPKEZC8 not getting accurate response from the server. vague value 
-// 6 hour tutorial https://www.youtube.com/watch?v=J01rYl9T3BU
-
-
-  // create a state and provide postal code here   
-    const getEmployee = async () => {
-    try {
-    const response = await firmsFinder.get(`/${inputValue}`);
-    console.log(response.data.rows);
-    console.log("Hello postal"+postal);
-    setFirms(response.data.rows);
-
-    }catch (err) {}
-        
-  };
-
-// Writting data to the table 
-const handleSubmitfirms = async (e) => {
-  e.preventDefault();
-   
-  try {
-    const response = await firmsFinder.post("/", {
-
-      priceid,
-      firm,
-      branch,
-      modprice,
-      uc,
-      wno,
-      wyes,
-      byesone,
-      byestwo,
-      byesthree,
-      byesfour,
-      stone,
-      sttwo,
-      stthree,
-      stfour,
-      work10,
-      work20,
-      work50,
-      work100,
-      postal: postalpush,
-      scaffold
-
-    })
-    console.log(response)
-  }catch (err){
-    console.log(err)
-  }
-
-}
-
-// Writting data into customer table
+    const handleCusEmail =(event) => {
+      setCusEmail(event.target.value);
+    }; 
+  
+    const handleCusHouseNumber =(event) => {
+      setCusHouseNumber(event.target.value);
+    }; 
+  
+    const handleCusStreetName =(event) => {
+      setCusStreetname(event.target.value);
+    }; 
+  
+    
+    // Writting data into customer table
 const handleSubmitCustomer = async (e) => {
   e.preventDefault();
 console.log("request is sent to the server")
@@ -356,8 +329,29 @@ setCusPostalCode(postal)
   } catch (err) {
     console.log(err)
    
-  }
-}
+  }}
+
+  
+// 57 minutes https://www.youtube.com/watch?v=ldYcgPKEZC8 not getting accurate response from the server. vague value 
+// 6 hour tutorial https://www.youtube.com/watch?v=J01rYl9T3BU
+
+
+
+
+
+  // create a state and provide postal code here 
+  
+    const getEmployee = async () => {
+    try {
+    const response = await firmsFinder.get(`/${inputValue}`);
+    console.log(response.data.rows);
+    console.log("Hello postal"+postal);
+    setFirms(response.data.rows);
+
+    }catch (err) {}
+        
+  };
+
 
 
 
@@ -368,19 +362,39 @@ setCusPostalCode(postal)
 <div id="footer">
     <div>
 {/* +++++++++++++++++++++++++++++++++++++++++Drop Down one ++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}         
-    <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+    <Accordion expanded={expanded === 1} onChange={handleChange(1)}>
       <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
         <Typography>Step: 1 Platz</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
-          
+
+      
+      <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Mit Ihrer Postleitzahl können wir die Installationsfirmen in Ihrer Nähe suchen.</Typography>
+      </Popover>    
      
 {/* Select city */} 
 <div>
      
       <br />
+      <div id="info">
       <h3>Wo wohnen sie</h3>
+      <InfoIcon aria-describedby={id}  color="success" onClick={handleClickP}/>
+      </div>
       <Autocomplete
         value={city}
         onChange={(event, newValue) => {
@@ -395,29 +409,49 @@ setCusPostalCode(postal)
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Stadt / Platz" />}
       />
-    </div>
+      </div>
+  <div>
 
-
-    <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel2'} onClick={handleChange('panel3')}>
+    <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 2} onClick={nextChange}>
         Weiter
       </Button>
+  </div>
 
-        </Typography>
+  </Typography>
       </AccordionDetails>
     </Accordion>
 
-
 {/* ++++++++++++++++++++++++++++++++++++Drop Down two +++++++++++++++++++++++++++++++++++++=*/} 
-    <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+    <Accordion expanded={expanded === 2} onChange={handleChange(2)}>
       <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
         <Typography>Step: 2  Usage</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
+
+        <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Diese Angabe hilft uns die ideale Dimension Ihrer Analge zu berechnen.</Typography>
+      </Popover>    
       
 
     {/* electricity usage */} 
+      <div id="info">
         <p> Wie hoch ist ihr Jahresverbrauch?</p>
+        <InfoIcon color="success" onClick={handleClickP}/>
+        </div>
         {/* Drop Down two */} 
         <FormControl required sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-required-label">Wie hoch ist ihr Jahresverbrauch?</InputLabel>
@@ -438,7 +472,7 @@ setCusPostalCode(postal)
         <FormHelperText>Required</FormHelperText>
       </FormControl>
 
-      <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel2'} onClick={handleChange('panel3')}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel2'} onClick={nextChange}>
         Weiter
       </Button>
 
@@ -449,16 +483,35 @@ setCusPostalCode(postal)
 
 
 {/* +++++++++++++++++++++++++++++++++++++++++++Drop Down three ++++++++++++++++++++++++++++++++++++++++++++++++++ */} 
-    <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+    <Accordion expanded={expanded === 3} onChange={handleChange(3)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step: 3 Wallbox</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>
        
+        <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Eine Wallbox ermöglicht es Ihnen, ein Elektrofahrzeug an ihr Stromnetz anzuschliessen.</Typography>
+      </Popover>    
 
        {/* Wallbox */} 
+       <div id="info">
         <p> Wollen Sie einen Wallbox installieren ?</p>
+        <InfoIcon color="success" onClick={handleClickP}/>
+        </div>
         {/* Drop Down two */} 
         <FormControl required sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-required-label">Wallbox</InputLabel>
@@ -477,7 +530,7 @@ setCusPostalCode(postal)
         <FormHelperText>Required</FormHelperText>
       </FormControl>
 
-      <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel2'} onClick={handleChange('panel3')}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel2'} onClick={nextChange}>
         Weiter
       </Button>
 
@@ -487,16 +540,35 @@ setCusPostalCode(postal)
 
 
 {/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ Drop Down Four ++++++++++++++++++++++++++++++++++++++++++ */} 
-    <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+    <Accordion expanded={expanded === 4} onChange={handleChange(4)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step : 4 Battery</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>  
 
+        <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Ein Batteriespeicher erhöht die Unabhängigkeit von der Stromversorgung reduziert aber in den meisten Fällen die Wirtschaftlichkeit Ihrer Anlage.</Typography>
+      </Popover>    
 
        {/* battery */} 
+       <div id="info">
         <p> Wollen Sie einen Batteriespeicher installieren ?</p>
+        <InfoIcon color="success" onClick={handleClickP}/>
+        </div>
         {/* Drop Down two */} 
         <FormControl required sx={{ m: 1, minWidth: 120 }}>
         <InputLabel id="demo-simple-select-required-label">Battery</InputLabel>
@@ -516,7 +588,7 @@ setCusPostalCode(postal)
       </FormControl>
       
 
-      <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel2'} onClick={handleChange('panel3')}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel2'} onClick={nextChange}>
         Weiter
       </Button>
 
@@ -527,13 +599,31 @@ setCusPostalCode(postal)
 
 
     {/* +++++++++++++++++++++++++++++++++++++++++++++++++Drop Down Five+++++++++++++++++++++++++++++++++++++++++++ */} 
-    <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+    <Accordion expanded={expanded === 5} onChange={handleChange(5)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 5: Fassade</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>  
 
+        <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Diese Angabe brauchen wir, um das benötigte Baugerüst zu berechnen.</Typography>
+      </Popover>    
+
+        <InfoIcon color="success" onClick={handleClickP}/>
 
     {/* Fassade */} 
        <Box
@@ -585,7 +675,7 @@ setCusPostalCode(postal)
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
-      <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel6'}  onClick={handleChange('panel6')}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextChange}>
         Weiter
       </Button>
         </Typography>
@@ -594,17 +684,37 @@ setCusPostalCode(postal)
 
 
     {/* ++++++++++++++++++++++++++++++++++++++++++++++Drop Down six +++++++++++++++++++++++++++++++++++++++++++ */} 
-    <Accordion expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
+    <Accordion expanded={expanded === 6} onChange={handleChange(6)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 6: Module or size</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>  
 
+        <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Die maximale Anzahl Module hängt nicht nur von der Gesamtfläche Ihres Daches ab, 
+        sondern auch von Schatten oder Hindernissen auf Ihrem Dach, wie Kamine, Dachfenster oder Anderes.
+In den meisten Fällen lohnt es sich, die maximale Anzahl Module auf das Dach zu bauen. </Typography>
+      </Popover>    
 
       {/* solar panel and meters */} 
-      
+      <div id="info">
       <h2> Wie viele Module passen maximal auf ihr Dach</h2>
+      <InfoIcon color="success" onClick={handleClickP}/>
+      </div>
       
        <Box
       component="form"
@@ -633,8 +743,9 @@ setCusPostalCode(postal)
       variant="outlined" />
     </Box>
       
+    <i class="bi bi-info-circle"></i>
 
-      <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={handleChange('panel6')}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextChange}>
         Weiter
       </Button>
 
@@ -646,20 +757,37 @@ setCusPostalCode(postal)
 
     
     {/* ++++++++++++++++++++++++++++Drop Down seven +++++++++++++++++++++++++++++++++++++++++++ */} 
-    <Accordion expanded={expanded === 'panel7'} onChange={handleChange('panel7')}>
+    <Accordion expanded={expanded === 7} onChange={handleChange(7)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 7: Anzahl module</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>  
     
-     
+        <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Die Empfohlene Anzahl Module ergibt 
+        sich aus Ihrem jährlichen Konsum und unter Berücksichtigung verschiedener Wirtschaftlichkeitsfaktoren. </Typography>
+      </Popover>    
       
 
     {/* Slider 2*/}
 
     <Box sx={{ m: 3 }} />
       <Typography gutterBottom>Wahlen Sie die Anzahl Module</Typography>
+      <InfoIcon color="success" onClick={handleClickP}/>
       <PrettoSlider
         valueLabelDisplay="auto"
         aria-label="pretto slider"
@@ -668,13 +796,12 @@ setCusPostalCode(postal)
 
 
     <Button onClick={getEmployee}>Calulate</Button>
-    <Button onClick={handleSubmitCustomer}>put data to table</Button>
 
  
     
   
         
-      <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={handleChange('panel6')}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextChange}>
         Angebot anzelgen
       </Button>
 
@@ -686,13 +813,32 @@ setCusPostalCode(postal)
 
 
  {/* ++++++++++++++++++++++++++++++++++++++++++++++++Drop Down Eight +++++++++++++++++++++++++++++++++++++++++++ */} 
- <Accordion expanded={expanded === 'panel8'} onChange={handleChange('panel8')}>
+ <Accordion expanded={expanded === 8} onChange={handleChange(8)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 8: Results</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>  
+        <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Eine Batteriespeicher erhöht die 
+        Unabhängigkeit von der Stromversorgung reduziert aber in den meisten Fällen die Wirtschaftlichkeit Ihrer Anlage.</Typography>
+      </Popover>
 
+
+        <InfoIcon color="success" onClick={handleClickP}/>
 
       {/* Result Table */}
         { firms.map((val, key) => {
@@ -3681,7 +3827,7 @@ if ( battery === 1) {
     })}
 
 
-      <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={handleChange('panel6')}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextChange}>
         Weiter
       </Button>
 
@@ -3692,85 +3838,107 @@ if ( battery === 1) {
 
 
   {/* +++++++++++++++++++++++++++++++++++++++++Drop Down Nine +++++++++++++++++++++++++++++++++++++++++++ */} 
- <Accordion expanded={expanded === 'panel9'} onChange={handleChange('panel9')}>
+ <Accordion expanded={expanded === 9} onChange={handleChange(9)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 9: Contact Page</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>  
+        
+        <>
+        <InfoIcon color="success" onClick={handleClickP}/>
 
-       <>
+        <Popover
+        id={id}
+        open={openPopper}
+        anchorEl={anchorEl}
+        onClose={handleCloseP}
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'center',
+          horizontal: 'left',
+        }}
+      >
+        <Typography sx={{ p: 2 }}>Als nächstes werden wir Sie kontaktieren, um weitere angebotsrelevante 
+        Details abzufragen, sodass wir Ihnen ein personalisiertes Angebot zustellen können.</Typography>
+      </Popover>
+
+       
+    
        
          
-            <TextField
-          id="outlined-multiline-flexible"
-          label="Name"
-          multiline
-          maxRows={4}
-          value={customername}
-          onChange={handleCustomerName}
-          fullWidth
-          required
-        />
+       <TextField
+     id="outlined-multiline-flexible"
+     label="Name"
+     multiline
+     maxRows={4}
+     value={customername}
+     onChange={handleCustomerName}
+     fullWidth
+     required
+   />
 
-      
-                <TextField
-          id="outlined-multiline-flexible"
-          label="Email"
-          multiline
-          maxRows={4}
-          value={cusemail}
-          onChange={handleCusEmail}
-          fullWidth
-          required
-        />
-            <br />
-        
-                <TextField
-          id="outlined-multiline-flexible"
-          label="House Number"
-          multiline
-          maxRows={4}
-          value={customername}
-          onChange={handleCusHouseNumber}
-          fullWidth
-          required
-        />
-            <br />
-         
-                <TextField
-          id="outlined-multiline-flexible"
-          label="Street Name"
-          multiline
-          maxRows={4}
-          value={customername}
-          onChange={handleCusStreetName}
-          fullWidth
-          required
-        />
-            <br />
-      
+ 
+           <TextField
+     id="outlined-multiline-flexible"
+     label="Email"
+     multiline
+     maxRows={4}
+     value={cusemail}
+     onChange={handleCusEmail}
+     fullWidth
+     required
+   />
+       <br />
+   
+           <TextField
+     id="outlined-multiline-flexible"
+     label="House Number"
+     multiline
+     maxRows={4}
+     value={cushousenumber}
+     onChange={handleCusHouseNumber}
+     fullWidth
+     required
+   />
+       <br />
+    
+           <TextField
+     id="outlined-multiline-flexible"
+     label="Street Name"
+     multiline
+     maxRows={4}
+     value={cusstreetname}
+     onChange={handleCusStreetName}
+     fullWidth
+     required
+   />
+       <br />
+ 
 
-      <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={handleChange('panel6')}>
-        Weiter
-      </Button>
+ <Button variant="contained" endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={handleChange('panel6')}>
+   Weiter
+ </Button>
 
-      <Button onClick={handleSubmitCustomer}>put data to table</Button>
+ <Button onClick={handleSubmitCustomer}>put data to table</Button>
 </>
 
 
-        </Typography>
-      </AccordionDetails>
-    </Accordion>
+   </Typography>
+ </AccordionDetails>
+</Accordion>
 
-  </div>
+</div>
 
-  </div>
-  
-
+</div>
 
 
- </>
+
+
+</>
   
   );
 
