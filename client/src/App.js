@@ -1,5 +1,7 @@
 
 import './App.css';
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
 import {Routes, Route, BrowserRouter } from 'react-router-dom';
 //import { FirmsContextProvider } from './context/fimsContext';
 
@@ -13,7 +15,9 @@ function App() {
 
 
   return (
-  
+    <>
+ 
+    <Header/>
 <FirmsContextProvider>
 
 
@@ -24,13 +28,15 @@ function App() {
 <Routes>
 
     <Route path="/" element={<Home />} />
-    <Route path="/firms/:id" element={<details />}/>
+    <Route path="/firms/:id" element={< details />}/>
  
 </Routes>;
 </BrowserRouter>
 </div>
 
 </FirmsContextProvider>  
+<Footer/>
+</>
 
   );
  
