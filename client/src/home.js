@@ -140,17 +140,26 @@ const PrettoSlider = styled(Slider)({
 //All state and new state variables
 const Home =() =>  {
   //Popper functions
-  const [anchorEl, setAnchorEl] = React.useState([null, 1, 2, 3, 4, 5, 6, 7 ,8, 9]);
+  const [anchorEl, setAnchorEl] = React.useState({
+    value: 0,
+    anchorEl: null,
+    popno: -1
+  });
 
-  const handleClickP = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClickP = (e, _popno) => {
+    setAnchorEl({ anchorEl: e.currentTarget, popno: _popno });
   };
 
   const handleCloseP = () => {
-    setAnchorEl(null);
+    setAnchorEl({ anchorEl: null, popno: -1 });
   };
 
-  const openPopper = Boolean(anchorEl);
+  const handleChangeP = (event, value) => {
+    setAnchorEl(anchorEl.value);
+  };
+
+
+  const openPopper = Boolean(anchorEl.anchorEl);
   const id = openPopper ? 'simple-popover' : undefined;
 
   // Dropdown the stages
@@ -367,13 +376,13 @@ setCusPostalCode(postal)
         <Typography>Step: 1 Platz</Typography>
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography value={anchorEl.value} onChange={handleChangeP}>
 
       
-      <Popover
+        <Popover
         id={id}
-        open={openPopper}
-        anchorEl={anchorEl}
+        open={ anchorEl.anchorEl !== null}
+        anchorEl={anchorEl.anchorEl}
         onClose={handleCloseP}
         anchorOrigin={{
           vertical: 'top',
@@ -384,8 +393,40 @@ setCusPostalCode(postal)
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Mit Ihrer Postleitzahl können wir die Installationsfirmen in Ihrer Nähe suchen.</Typography>
-      </Popover>    
+        {anchorEl.popno === 1 && (
+        <Typography id='popover' sx={{ p: 2 }}>Mit Ihrer Postleitzahl können wir die Installationsfirmen in Ihrer Nähe suchen.</Typography>
+      )}
+      {anchorEl.popno === 2 && (
+        <Typography id='popover' sx={{ p: 2 }}>Diese Angabe hilft uns die ideale Dimension Ihrer Analge zu berechnen.</Typography>
+      )}
+      {anchorEl.popno === 3 && (
+         <Typography id='popover' sx={{ p: 2 }}>Eine Wallbox ermöglicht es Ihnen, ein Elektrofahrzeug <br></br> an ihr Stromnetz anzuschliessen.</Typography>
+      )}
+      {anchorEl.popno === 4 && (
+       <Typography id='popover' sx={{ p: 2 }}>Ein Batteriespeicher erhöht die Unabhängigkeit <br></br>von der Stromversorgung reduziert aber in den meisten Fällen die Wirtschaftlichkeit Ihrer Anlage.</Typography>
+      )}
+      {anchorEl.popno === 5 && (
+        <Typography id='popover' sx={{ p: 2 }}>Diese Angabe brauchen wir, <br></br>um das benötigte Baugerüst zu berechnen.</Typography>
+      )}
+      {anchorEl.popno === 6 && (
+         <Typography id='popover' sx={{ p: 2 }}>Die maximale Anzahl Module hängt nicht nur von der Gesamtfläche Ihres <br></br> Daches ab, 
+         sondern auch von Schatten oder Hindernissen auf Ihrem Dach,<br></br> wie Kamine, Dachfenster oder Anderes.
+ In den meisten Fällen lohnt es sich, <br></br>die maximale Anzahl Module auf das Dach zu bauen. </Typography>
+      )}
+      {anchorEl.popno === 7 && (
+       <Typography id='popover' sx={{ p: 2 }}>Die Empfohlene Anzahl Module ergibt 
+       sich aus Ihrem jährlichen<br></br> Konsum und unter Berücksichtigung verschiedener Wirtschaftlichkeitsfaktoren. </Typography>
+      )}
+      {anchorEl.popno === 8 && (
+        <Typography id='popover' sx={{ p: 2 }}>Eine Batteriespeicher erhöht die 
+        Unabhängigkeit von der Stromversorgung reduziert <br></br> aber in den meisten Fällen die Wirtschaftlichkeit Ihrer Anlage.</Typography>
+      )}
+      {anchorEl.popno === 9 && (
+         <Typography id='popover' sx={{ p: 2 }}>Als nächstes werden wir Sie kontaktieren, um weitere angebotsrelevante <br></br>
+         Details abzufragen, sodass wir Ihnen ein personalisiertes Angebot zustellen können.</Typography>
+      )}
+        
+      </Popover>      
      
 {/* Select city */} 
 <div>
@@ -393,7 +434,7 @@ setCusPostalCode(postal)
       <br />
       <div id="info">
       <h3>Wo wohnen sie</h3>
-      <InfoIcon aria-describedby={id}  color="success" onClick={handleClickP}/>
+      <InfoIcon aria-describedby={id}  color="success" onClick={e => handleClickP(e, 1)}/>
       </div>
       <Autocomplete
         value={city}
@@ -443,14 +484,14 @@ setCusPostalCode(postal)
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Diese Angabe hilft uns die ideale Dimension Ihrer Analge zu berechnen.</Typography>
+       
       </Popover>    
       
 
     {/* electricity usage */} 
       <div id="info">
         <p> Wie hoch ist ihr Jahresverbrauch?</p>
-        <InfoIcon color="success" onClick={handleClickP}/>
+        <InfoIcon color="success" onClick={e => handleClickP(e, 2)}/>
         </div>
         {/* Drop Down two */} 
         <FormControl required sx={{ m: 1, minWidth: 120 }}>
@@ -504,13 +545,13 @@ setCusPostalCode(postal)
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Eine Wallbox ermöglicht es Ihnen, ein Elektrofahrzeug an ihr Stromnetz anzuschliessen.</Typography>
+       
       </Popover>    
 
        {/* Wallbox */} 
        <div id="info">
         <p> Wollen Sie einen Wallbox installieren ?</p>
-        <InfoIcon color="success" onClick={handleClickP}/>
+        <InfoIcon color="success" onClick={e => handleClickP(e, 3)}/>
         </div>
         {/* Drop Down two */} 
         <FormControl required sx={{ m: 1, minWidth: 120 }}>
@@ -561,13 +602,13 @@ setCusPostalCode(postal)
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Ein Batteriespeicher erhöht die Unabhängigkeit von der Stromversorgung reduziert aber in den meisten Fällen die Wirtschaftlichkeit Ihrer Anlage.</Typography>
+       
       </Popover>    
 
        {/* battery */} 
        <div id="info">
         <p> Wollen Sie einen Batteriespeicher installieren ?</p>
-        <InfoIcon color="success" onClick={handleClickP}/>
+        <InfoIcon color="success"onClick={e => handleClickP(e, 4)}/>
         </div>
         {/* Drop Down two */} 
         <FormControl required sx={{ m: 1, minWidth: 120 }}>
@@ -620,10 +661,10 @@ setCusPostalCode(postal)
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Diese Angabe brauchen wir, um das benötigte Baugerüst zu berechnen.</Typography>
+       
       </Popover>    
 
-        <InfoIcon color="success" onClick={handleClickP}/>
+        <InfoIcon color="success" onClick={e => handleClickP(e, 5)}/>
 
     {/* Fassade */} 
        <Box
@@ -705,15 +746,13 @@ setCusPostalCode(postal)
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Die maximale Anzahl Module hängt nicht nur von der Gesamtfläche Ihres Daches ab, 
-        sondern auch von Schatten oder Hindernissen auf Ihrem Dach, wie Kamine, Dachfenster oder Anderes.
-In den meisten Fällen lohnt es sich, die maximale Anzahl Module auf das Dach zu bauen. </Typography>
+  
       </Popover>    
 
       {/* solar panel and meters */} 
       <div id="info">
       <h2> Wie viele Module passen maximal auf ihr Dach</h2>
-      <InfoIcon color="success" onClick={handleClickP}/>
+      <InfoIcon color="success" onClick={e => handleClickP(e, 6)}/>
       </div>
       
        <Box
@@ -778,8 +817,7 @@ In den meisten Fällen lohnt es sich, die maximale Anzahl Module auf das Dach zu
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Die Empfohlene Anzahl Module ergibt 
-        sich aus Ihrem jährlichen Konsum und unter Berücksichtigung verschiedener Wirtschaftlichkeitsfaktoren. </Typography>
+        
       </Popover>    
       
 
@@ -787,7 +825,7 @@ In den meisten Fällen lohnt es sich, die maximale Anzahl Module auf das Dach zu
 
     <Box sx={{ m: 3 }} />
       <Typography gutterBottom>Wahlen Sie die Anzahl Module</Typography>
-      <InfoIcon color="success" onClick={handleClickP}/>
+      <InfoIcon color="success" onClick={e => handleClickP(e, 7)}/>
       <PrettoSlider
         valueLabelDisplay="auto"
         aria-label="pretto slider"
@@ -833,14 +871,22 @@ In den meisten Fällen lohnt es sich, die maximale Anzahl Module auf das Dach zu
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Eine Batteriespeicher erhöht die 
-        Unabhängigkeit von der Stromversorgung reduziert aber in den meisten Fällen die Wirtschaftlichkeit Ihrer Anlage.</Typography>
+       
       </Popover>
 
 
-        <InfoIcon color="success" onClick={handleClickP}/>
+        <InfoIcon color="success" onClick={e => handleClickP(e, 8)}/>
 
       {/* Result Table */}
+      <div className="employee">                                  
+                                <div>
+                                <table id='tableREsult'>
+                                  <tr>
+                                    <th>Firm</th>
+                                    <th>Branch</th> 
+                                    <th>Price</th>
+                                    <th>Select Firm</th>
+                                  </tr>
         { firms.map((val, key) => {
       
 {/* Result Test Start */}
@@ -856,58 +902,81 @@ if ( battery === 0) {
                   if (year === 10) {
                      {/* Dividing based on modules */}      
                               if (module <= 10){
-                                  return   (<div className="employee">
-                                  <div>
-                                    <h3>Firm: {val.firm}</h3>
-                                  
-                                    <h3>Branch:  {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</>
-                                    <button onClick={() => {
-
-                                                setCusTimeoffered(date);
-                                                setCusUsage(usage);
-                                                setCusWallbox(wallbox)
-                                                setCusBattery(battery);
-                                                setCusModules(module)
-                                                setCusBranchSelected(val.firm)
-                                                setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10));
-                                                setCusPostalCode(postal)
-
-                                                } }> Teke to firm </button>
-                                  </div>
-                                  </div>)
+                                  return   (
+                                  <tr>
+                                    <td>{val.firm}</td>
+                                    <td>{val.branch}</td> 
+                                    <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
+                                    <td>      <button onClick={() => {
+                                    setCusTimeoffered(date);
+                                    setCusUsage(usage);
+                                    setCusWallbox(wallbox)
+                                    setCusBattery(battery);
+                                    setCusModules(module)
+                                    setCusBranchSelected(val.firm)
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
+                                    setCusPostalCode(postal)
+                                    } }> Teke to firm </button></td>
+                                  </tr>
+                                )
                               }
                               if (module > 10 && module <= 20){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20))}</>
-                                </div>
-                                </div>)
+                                return   (
+                              
+                                  <tr>
+                                    <td>{val.firm}</td>
+                                    <td>{val.branch}</td> 
+                                    <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
+                                    <td>      <button onClick={() => {
+                                    setCusTimeoffered(date);
+                                    setCusUsage(usage);
+                                    setCusWallbox(wallbox)
+                                    setCusBattery(battery);
+                                    setCusModules(module)
+                                    setCusBranchSelected(val.firm)
+                                    setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10));
+                                    setCusPostalCode(postal)
+                                    } }> Teke to firm </button></td>
+                                  </tr>
+                                )
                         }
                             if (module > 20 && module <=50){
-                              return   (<div className="employee">
-                              <div>
-                                <h3>Firm: {val.firm}</h3>
-                                <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50))}</>
-                              </div>
-                              </div>)
+                              return   (
+                                  <tr>
+                                    <td>{val.firm}</td>
+                                    <td>{val.branch}</td> 
+                                    <td>{((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50))}</td>
+                                    <td>      <button onClick={() => {
+                                    setCusTimeoffered(date);
+                                    setCusUsage(usage);
+                                    setCusWallbox(wallbox)
+                                    setCusBattery(battery);
+                                    setCusModules(module)
+                                    setCusBranchSelected(val.firm)
+                                    setCusPriceOffered((val.modPrice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50));
+                                    setCusPostalCode(postal)
+                                    } }> Teke to firm </button></td>
+                                  </tr>
+                              )
                             }
                           if (module > 50){
-                            return   (<div className="employee">
-                            <div>
-                              <h3>Firm: {val.firm}</h3>
-                              <h3>Branch: {val.branch}</h3>
-                              
-                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100))}</>
-                            </div>
-                            </div>)
+                            return   (
+                                  <tr>
+                                    <td>{val.firm}</td>
+                                    <td>{val.branch}</td> 
+                                    <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100))}</td>
+                                    <td>      <button onClick={() => {
+                                    setCusTimeoffered(date);
+                                    setCusUsage(usage);
+                                    setCusWallbox(wallbox)
+                                    setCusBattery(battery);
+                                    setCusModules(module)
+                                    setCusBranchSelected(val.firm)
+                                    setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100));
+                                    setCusPostalCode(postal)
+                                    } }> Teke to firm </button></td>
+                                  </tr>
+                               )
                           }
 
               }
@@ -915,44 +984,79 @@ if ( battery === 0) {
                       if (year === 20) {
                         {/* Dividing based on modules */}      
                                 if (module <= 10){
-                                    return   (<div className="employee">
-                                    <div>
-                                      <h3>Firm: {val.firm}</h3>
-                                      <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work10))}</>
-                                    </div>
-                                    </div>)
+                                    return   (
+                                  <tr>
+                                    <td>{val.firm}</td>
+                                    <td>{val.branch}</td> 
+                                    <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work10))}</td>
+                                    <td>      <button onClick={() => {
+                                    setCusTimeoffered(date);
+                                    setCusUsage(usage);
+                                    setCusWallbox(wallbox)
+                                    setCusBattery(battery);
+                                    setCusModules(module)
+                                    setCusBranchSelected(val.firm)
+                                    setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work10));
+                                    setCusPostalCode(postal)
+                                    } }> Teke to firm </button></td>
+                                  </tr>
+                                )
                                 }
                                 if (module > 10 && module <= 20){
-                                  return   (<div className="employee">
-                                  <div>
-                                    <h3>Firm: {val.firm}</h3>
-                                    <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work20))}</>
-                                  </div>
-                                  </div>)
+                                  return   (
+                                  <tr>
+                                    <td>{val.firm}</td>
+                                    <td>{val.branch}</td> 
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work20))}</td>
+                                    <td>      <button onClick={() => {
+                                    setCusTimeoffered(date);
+                                    setCusUsage(usage);
+                                    setCusWallbox(wallbox)
+                                    setCusBattery(battery);
+                                    setCusModules(module)
+                                    setCusBranchSelected(val.firm)
+                                    setCusPriceOffered( (val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work20));
+                                    setCusPostalCode(postal)
+                                    } }> Teke to firm </button></td>
+                                  </tr>
+                                )
                           }
                               if (module > 20 && module <=50){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work50))}</>
-                                </div>
-                                </div>)
+                                return   (
+                                  <tr>
+                                    <td>{val.firm}</td>
+                                    <td>{val.branch}</td> 
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work50))}</td>
+                                    <td>      <button onClick={() => {
+                                    setCusTimeoffered(date);
+                                    setCusUsage(usage);
+                                    setCusWallbox(wallbox)
+                                    setCusBattery(battery);
+                                    setCusModules(module)
+                                    setCusBranchSelected(val.firm)
+                                    setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work50)));
+                                    setCusPostalCode(postal)
+                                    } }> Teke to firm </button></td>
+                                  </tr>
+                               )
                               }
                             if (module > 50){
-                              return   (<div className="employee">
-                              <div>
-                                <h3>Firm: {val.firm}</h3>
-                                <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work100))}</>
-                              </div>
-                              </div>)
+                              return   (
+                                <tr>
+                                <td>{val.firm}</td>
+                                <td>{val.branch}</td> 
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work100))}</td>
+                                <td>      <button onClick={() => {
+                                setCusTimeoffered(date);
+                                setCusUsage(usage);
+                                setCusWallbox(wallbox)
+                                setCusBattery(battery);
+                                setCusModules(module)
+                                setCusBranchSelected(val.firm)
+                                setCusPriceOffered( (val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.sttwo + (module * val.work100));
+                                setCusPostalCode(postal)
+                                } }> Teke to firm </button></td>
+                              </tr>)
                             }
 
                   }
@@ -960,44 +1064,77 @@ if ( battery === 0) {
                     if (year === 10) {
                       {/* Dividing based on modules */}      
                               if (module <= 15){
-                                  return   (<div className="employee">
-                                  <div>
-                                    <h3>Firm: {val.firm}</h3>
-                                    <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work10))}</>
-                                  </div>
-                                  </div>)
+                                  return   (
+                                  
+                                  <tr>
+                                  <td>{val.firm}</td>
+                                  <td>{val.branch}</td> 
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work10))}</td>
+                                  <td>      <button onClick={() => {
+                                  setCusTimeoffered(date);
+                                  setCusUsage(usage);
+                                  setCusWallbox(wallbox)
+                                  setCusBattery(battery);
+                                  setCusModules(module)
+                                  setCusBranchSelected(val.firm)
+                                  setCusPriceOffered( (val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work10));
+                                  setCusPostalCode(postal)
+                                  } }> Teke to firm </button></td>
+                                </tr>)
                               }
                               if (module > 10 && module <= 20){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work20))}</>
-                                </div>
-                                </div>)
+                                return   (
+                                 <tr>
+                                 <td>{val.firm}</td>
+                                 <td>{val.branch}</td> 
+                                 <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work20))}</td>
+                                 <td>      <button onClick={() => {
+                                 setCusTimeoffered(date);
+                                 setCusUsage(usage);
+                                 setCusWallbox(wallbox)
+                                 setCusBattery(battery);
+                                 setCusModules(module)
+                                 setCusBranchSelected(val.firm)
+                                 setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work20)));
+                                 setCusPostalCode(postal)
+                                 } }> Teke to firm </button></td>
+                               </tr>)
                         }
                             if (module > 20 && module <=50){
-                              return   (<div className="employee">
-                              <div>
-                                <h3>Firm: {val.firm}</h3>
-                                <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work50))}</>
-                              </div>
-                              </div>)
+                              return   (
+                                <tr>
+                                <td>{val.firm}</td>
+                                <td>{val.branch}</td> 
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work50))}</td>
+                                <td>      <button onClick={() => {
+                                setCusTimeoffered(date);
+                                setCusUsage(usage);
+                                setCusWallbox(wallbox)
+                                setCusBattery(battery);
+                                setCusModules(module)
+                                setCusBranchSelected(val.firm)
+                                setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work50)));
+                                setCusPostalCode(postal)
+                                } }> Teke to firm </button></td>
+                              </tr>)
                             }
                           if (module > 50){
-                            return   (<div className="employee">
-                            <div>
-                              <h3>Firm: {val.firm}</h3>
-                              <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work100))}</>
-                            </div>
-                            </div>)
+                            return   (
+                             <tr>
+                             <td>{val.firm}</td>
+                             <td>{val.branch}</td> 
+                             <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work100))}</td>
+                             <td>      <button onClick={() => {
+                             setCusTimeoffered(date);
+                             setCusUsage(usage);
+                             setCusWallbox(wallbox)
+                             setCusBattery(battery);
+                             setCusModules(module)
+                             setCusBranchSelected(val.firm)
+                             setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stthree + (module * val.work100)));
+                             setCusPostalCode(postal)
+                             } }> Teke to firm </button></td>
+                           </tr>)
                           }
 
                 }
@@ -1005,44 +1142,76 @@ if ( battery === 0) {
                   if (year === 10) {
                     {/* Dividing based on modules */}      
                             if (module <= 15){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work10))}</>
-                                </div>
-                                </div>)
+                                return   (
+                                <tr>
+                                <td>{val.firm}</td>
+                                <td>{val.branch}</td> 
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work10))}</td>
+                                <td>      <button onClick={() => {
+                                setCusTimeoffered(date);
+                                setCusUsage(usage);
+                                setCusWallbox(wallbox)
+                                setCusBattery(battery);
+                                setCusModules(module)
+                                setCusBranchSelected(val.firm)
+                                setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work10)));
+                                setCusPostalCode(postal)
+                                } }> Teke to firm </button></td>
+                              </tr>)
                             }
                             if (module > 10 && module <= 20){
-                              return   (<div className="employee">
-                              <div>
-                                <h3>Firm: {val.firm}</h3>
-                                <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work20))}</>
-                              </div>
-                              </div>)
+                              return   (
+                              <tr>
+                              <td>{val.firm}</td>
+                              <td>{val.branch}</td> 
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work20))}</td>
+                              <td>      <button onClick={() => {
+                              setCusTimeoffered(date);
+                              setCusUsage(usage);
+                              setCusWallbox(wallbox)
+                              setCusBattery(battery);
+                              setCusModules(module)
+                              setCusBranchSelected(val.firm)
+                              setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work20)));
+                              setCusPostalCode(postal)
+                              } }> Teke to firm </button></td>
+                            </tr>)
                       }
                           if (module > 20 && module <=50){
-                            return   (<div className="employee">
-                            <div>
-                              <h3>Firm: {val.firm}</h3>
-                              <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work50))}</>
-                            </div>
-                            </div>)
+                            return   (
+                             <tr>
+                             <td>{val.firm}</td>
+                             <td>{val.branch}</td> 
+                             <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work50))}</td>
+                             <td>      <button onClick={() => {
+                             setCusTimeoffered(date);
+                             setCusUsage(usage);
+                             setCusWallbox(wallbox)
+                             setCusBattery(battery);
+                             setCusModules(module)
+                             setCusBranchSelected(val.firm)
+                             setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work50)));
+                             setCusPostalCode(postal)
+                             } }> Teke to firm </button></td>
+                           </tr>)
                           }
                         if (module > 50){
-                          return   (<div className="employee">
-                          <div>
-                            <h3>Firm: {val.firm}</h3>
-                            <h3>Branch: {val.branch}</h3>
-                            <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                            <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work100))}</>
-                          </div>
-                          </div>)
+                          return   (
+                           <tr>
+                           <td>{val.firm}</td>
+                           <td>{val.branch}</td> 
+                           <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work100))}</td>
+                           <td>      <button onClick={() => {
+                           setCusTimeoffered(date);
+                           setCusUsage(usage);
+                           setCusWallbox(wallbox)
+                           setCusBattery(battery);
+                           setCusModules(module)
+                           setCusBranchSelected(val.firm)
+                           setCusPriceOffered(  ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stfour + (module * val.work100)));
+                           setCusPostalCode(postal)
+                           } }> Teke to firm </button></td>
+                         </tr>)
                         }
 
               }
@@ -1053,44 +1222,76 @@ if ( battery === 0) {
                     if (year === 10) {
                        {/* Dividing based on modules */}      
                                 if (module < 10){
-                                    return   (<div className="employee">
-                                    <div>
-                                      <h3>Firm: {val.firm}</h3>
-                                      <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</>
-                                    </div>
-                                    </div>)
+                                    return   (
+                                     <tr>
+                                     <td>{val.firm}</td>
+                                     <td>{val.branch}</td> 
+                                     <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                     <td>      <button onClick={() => {
+                                     setCusTimeoffered(date);
+                                     setCusUsage(usage);
+                                     setCusWallbox(wallbox)
+                                     setCusBattery(battery);
+                                     setCusModules(module)
+                                     setCusBranchSelected(val.firm)
+                                     setCusPriceOffered( (val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10));
+                                     setCusPostalCode(postal)
+                                     } }> Teke to firm </button></td>
+                                   </tr>)
                                 }
                                 if (module > 10 && module <= 20){
-                                  return   (<div className="employee">
-                                  <div>
-                                    <h3>Firm: {val.firm}</h3>
-                                    <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work20))}</>
-                                  </div>
-                                  </div>)
+                                  return   (
+                                  <tr>
+                                  <td>{val.firm}</td>
+                                  <td>{val.branch}</td> 
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work20))}</td>
+                                  <td>      <button onClick={() => {
+                                  setCusTimeoffered(date);
+                                  setCusUsage(usage);
+                                  setCusWallbox(wallbox)
+                                  setCusBattery(battery);
+                                  setCusModules(module)
+                                  setCusBranchSelected(val.firm)
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work20)));
+                                  setCusPostalCode(postal)
+                                  } }> Teke to firm </button></td>
+                                </tr>)
                           }
                               if (module > 20 && module <=50){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work50))}</>
-                                </div>
-                                </div>)
+                                return   (
+                                 <tr>
+                                 <td>{val.firm}</td>
+                                 <td>{val.branch}</td> 
+                                 <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work50))}</td>
+                                 <td>      <button onClick={() => {
+                                 setCusTimeoffered(date);
+                                 setCusUsage(usage);
+                                 setCusWallbox(wallbox)
+                                 setCusBattery(battery);
+                                 setCusModules(module)
+                                 setCusBranchSelected(val.firm)
+                                 setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work50));
+                                 setCusPostalCode(postal)
+                                 } }> Teke to firm </button></td>
+                               </tr>)
                               }
                             if (module > 50){
-                              return   (<div className="employee">
-                              <div>
-                                <h3>Firm: {val.firm}</h3>
-                                <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work100))}</>
-                              </div>
-                              </div>)
+                              return   (
+                               <tr>
+                               <td>{val.firm}</td>
+                               <td>{val.branch}</td> 
+                               <td>  {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work100))}</td>
+                               <td>      <button onClick={() => {
+                               setCusTimeoffered(date);
+                               setCusUsage(usage);
+                               setCusWallbox(wallbox)
+                               setCusBattery(battery);
+                               setCusModules(module)
+                               setCusBranchSelected(val.firm)
+                               setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stone + (module * val.work100)));
+                               setCusPostalCode(postal)
+                               } }> Teke to firm </button></td>
+                             </tr>)
                             }
   
                 }
@@ -1098,44 +1299,76 @@ if ( battery === 0) {
                         if (year === 20) {
                           {/* Dividing based on modules */}      
                                   if (module <= 15){
-                                      return   (<div className="employee">
-                                      <div>
-                                        <h3>Firm: {val.firm}</h3>
-                                        <h3>Branch: {val.branch}</h3>
-                                        <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                        <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work10))}</>
-                                      </div>
-                                      </div>)
+                                      return   (
+                                      <tr>
+                                      <td>{val.firm}</td>
+                                      <td>{val.branch}</td> 
+                                      <td>  {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work10))}</td>
+                                      <td>      <button onClick={() => {
+                                      setCusTimeoffered(date);
+                                      setCusUsage(usage);
+                                      setCusWallbox(wallbox)
+                                      setCusBattery(battery);
+                                      setCusModules(module)
+                                      setCusBranchSelected(val.firm)
+                                      setCusPriceOffered( (val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work10));
+                                      setCusPostalCode(postal)
+                                      } }> Teke to firm </button></td>
+                                    </tr>)
                                   }
                                   if (module > 10 && module <= 20){
-                                    return   (<div className="employee">
-                                    <div>
-                                      <h3>Firm: {val.firm}</h3>
-                                      <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work20))}</>
-                                    </div>
-                                    </div>)
+                                    return   (
+                                     <tr>
+                                     <td>{val.firm}</td>
+                                     <td>{val.branch}</td> 
+                                     <td>  {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work20))}</td>
+                                     <td>      <button onClick={() => {
+                                     setCusTimeoffered(date);
+                                     setCusUsage(usage);
+                                     setCusWallbox(wallbox)
+                                     setCusBattery(battery);
+                                     setCusModules(module)
+                                     setCusBranchSelected(val.firm)
+                                     setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work20)));
+                                     setCusPostalCode(postal)
+                                     } }> Teke to firm </button></td>
+                                   </tr>)
                             }
                                 if (module > 20 && module <=50){
-                                  return   (<div className="employee">
-                                  <div>
-                                    <h3>Firm: {val.firm}</h3>
-                                    <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work50))}</>
-                                  </div>
-                                  </div>)
+                                  return   (
+                                   <tr>
+                                   <td>{val.firm}</td>
+                                   <td>{val.branch}</td> 
+                                   <td>  {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work50))}</td>
+                                   <td>      <button onClick={() => {
+                                   setCusTimeoffered(date);
+                                   setCusUsage(usage);
+                                   setCusWallbox(wallbox)
+                                   setCusBattery(battery);
+                                   setCusModules(module)
+                                   setCusBranchSelected(val.firm)
+                                   setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work50)));
+                                   setCusPostalCode(postal)
+                                   } }> Teke to firm </button></td>
+                                 </tr>)
                                 }
                               if (module > 50){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work100))}</>
-                                </div>
-                                </div>)
+                                return   (
+                                 <tr>
+                                 <td>{val.firm}</td>
+                                 <td>{val.branch}</td> 
+                                 <td>  {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work100))}</td>
+                                 <td>      <button onClick={() => {
+                                 setCusTimeoffered(date);
+                                 setCusUsage(usage);
+                                 setCusWallbox(wallbox)
+                                 setCusBattery(battery);
+                                 setCusModules(module)
+                                 setCusBranchSelected(val.firm)
+                                 setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.sttwo + (module * val.work100)));
+                                 setCusPostalCode(postal)
+                                 } }> Teke to firm </button></td>
+                               </tr>)
                               }
   
                     }
@@ -1143,44 +1376,77 @@ if ( battery === 0) {
                       if (year === 30) {
                         {/* Dividing based on modules */}      
                                 if (module <= 15){
-                                    return   (<div className="employee">
-                                    <div>
-                                      <h3>Firm: {val.firm}</h3>
-                                      <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work10))}</>
-                                    </div>
-                                    </div>)
+                                    return   (
+                                     <tr>
+                                 <td>{val.firm}</td>
+                                 <td>{val.branch}</td> 
+                                 <td>  {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work10))}</td>
+                                 <td>      <button onClick={() => {
+                                 setCusTimeoffered(date);
+                                 setCusUsage(usage);
+                                 setCusWallbox(wallbox)
+                                 setCusBattery(battery);
+                                 setCusModules(module)
+                                 setCusBranchSelected(val.firm)
+                                 setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work10)));
+                                 setCusPostalCode(postal)
+                                 } }> Teke to firm </button></td>
+                               </tr>
+                                    )
                                 }
                                 if (module > 10 && module <= 20){
-                                  return   (<div className="employee">
-                                  <div>
-                                    <h3>Firm: {val.firm}</h3>
-                                    <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+val.byestwo  + val.stthree + (module * val.work20))}</>
-                                  </div>
-                                  </div>)
+                                  return   (
+                                   <tr>
+                                   <td>{val.firm}</td>
+                                   <td>{val.branch}</td> 
+                                   <td>  {((val.modprice * module) + (val.uc * module) + val.wyes+val.byestwo  + val.stthree + (module * val.work20))}</td>
+                                   <td>      <button onClick={() => {
+                                   setCusTimeoffered(date);
+                                   setCusUsage(usage);
+                                   setCusWallbox(wallbox)
+                                   setCusBattery(battery);
+                                   setCusModules(module)
+                                   setCusBranchSelected(val.firm)
+                                   setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+val.byestwo  + val.stthree + (module * val.work20)));
+                                   setCusPostalCode(postal)
+                                   } }> Teke to firm </button></td>
+                                 </tr>)
                           }
                               if (module > 20 && module <=50){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work50))}</>
-                                </div>
-                                </div>)
+                                return   (
+                                <tr>
+                                <td>{val.firm}</td>
+                                <td>{val.branch}</td> 
+                                <td>  {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work50))}</td>
+                                <td>      <button onClick={() => {
+                                setCusTimeoffered(date);
+                                setCusUsage(usage);
+                                setCusWallbox(wallbox)
+                                setCusBattery(battery);
+                                setCusModules(module)
+                                setCusBranchSelected(val.firm)
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work50)));
+                                setCusPostalCode(postal)
+                                } }> Teke to firm </button></td>
+                              </tr>)
                               }
                             if (module > 50){
-                              return   (<div className="employee">
-                              <div>
-                                <h3>Firm: {val.firm}</h3>
-                                <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work100))}</>
-                              </div>
-                              </div>)
+                              return   (
+                              <tr>
+                              <td>{val.firm}</td>
+                              <td>{val.branch}</td> 
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work100))}</td>
+                              <td>      <button onClick={() => {
+                              setCusTimeoffered(date);
+                              setCusUsage(usage);
+                              setCusWallbox(wallbox)
+                              setCusBattery(battery);
+                              setCusModules(module)
+                              setCusBranchSelected(val.firm)
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stthree + (module * val.work100)));
+                              setCusPostalCode(postal)
+                              } }> Teke to firm </button></td>
+                            </tr>)
                             }
   
                   }
@@ -1188,44 +1454,76 @@ if ( battery === 0) {
                     if (year === 40) {
                       {/* Dividing based on modules */}      
                               if (module <= 15){
-                                  return   (<div className="employee">
-                                  <div>
-                                    <h3>Firm: {val.firm}</h3>
-                                    <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work10))}</>
-                                  </div>
-                                  </div>)
+                                  return   (
+                                   <tr>
+                                   <td>{val.firm}</td>
+                                   <td>{val.branch}</td> 
+                                   <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work10))}</td>
+                                   <td>      <button onClick={() => {
+                                   setCusTimeoffered(date);
+                                   setCusUsage(usage);
+                                   setCusWallbox(wallbox)
+                                   setCusBattery(battery);
+                                   setCusModules(module)
+                                   setCusBranchSelected(val.firm)
+                                   setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work10)));
+                                   setCusPostalCode(postal)
+                                   } }> Teke to firm </button></td>
+                                 </tr>)
                               }
                               if (module > 10 && module <= 20){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work20))}</>
-                                </div>
-                                </div>)
+                                return   (
+                                <tr>
+                                <td>{val.firm}</td>
+                                <td>{val.branch}</td> 
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work20))}</td>
+                                <td>      <button onClick={() => {
+                                setCusTimeoffered(date);
+                                setCusUsage(usage);
+                                setCusWallbox(wallbox)
+                                setCusBattery(battery);
+                                setCusModules(module)
+                                setCusBranchSelected(val.firm)
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work20)));
+                                setCusPostalCode(postal)
+                                } }> Teke to firm </button></td>
+                              </tr>)
                         }
                             if (module > 20 && module <=50){
-                              return   (<div className="employee">
-                              <div>
-                                <h3>Firm: {val.firm}</h3>
-                                <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work50))}</>
-                              </div>
-                              </div>)
+                              return   (
+                               <tr>
+                               <td>{val.firm}</td>
+                               <td>{val.branch}</td> 
+                               <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work50))}</td>
+                               <td>      <button onClick={() => {
+                               setCusTimeoffered(date);
+                               setCusUsage(usage);
+                               setCusWallbox(wallbox)
+                               setCusBattery(battery);
+                               setCusModules(module)
+                               setCusBranchSelected(val.firm)
+                               setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work50));
+                               setCusPostalCode(postal)
+                               } }> Teke to firm </button></td>
+                             </tr>)
                             }
                           if (module > 50){
-                            return   (<div className="employee">
-                            <div>
-                              <h3>Firm: {val.firm}</h3>
-                              <h3>Branch: {val.branch}</h3>
-                              <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                              <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work100))}</>
-                            </div>
-                            </div>)
+                            return   (
+                            <tr>
+                            <td>{val.firm}</td>
+                            <td>{val.branch}</td> 
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work100))}</td>
+                            <td>      <button onClick={() => {
+                            setCusTimeoffered(date);
+                            setCusUsage(usage);
+                            setCusWallbox(wallbox)
+                            setCusBattery(battery);
+                            setCusModules(module)
+                            setCusBranchSelected(val.firm)
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo  + val.stfour + (module * val.work100)));
+                            setCusPostalCode(postal)
+                            } }> Teke to firm </button></td>
+                          </tr>)
                           }
   
                 }
@@ -1236,44 +1534,76 @@ if ( battery === 0) {
                     if (year === 10) {
                        {/* Dividing based on modules */}      
                                 if (module <= 15){
-                                    return   (<div className="employee">
-                                    <div>
-                                      <h3>Firm: {val.firm}</h3>
-                                      <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work10))}</>
-                                    </div>
-                                    </div>)
+                                    return   (
+                                     <tr>
+                                     <td>{val.firm}</td>
+                                     <td>{val.branch}</td> 
+                                     <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work10))}</td>
+                                     <td>      <button onClick={() => {
+                                     setCusTimeoffered(date);
+                                     setCusUsage(usage);
+                                     setCusWallbox(wallbox)
+                                     setCusBattery(battery);
+                                     setCusModules(module)
+                                     setCusBranchSelected(val.firm)
+                                     setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work10)));
+                                     setCusPostalCode(postal)
+                                     } }> Teke to firm </button></td>
+                                   </tr>)
                                 }
                                 if (module > 10 && module <= 20){
-                                  return   (<div className="employee">
-                                  <div>
-                                    <h3>Firm: {val.firm}</h3>
-                                    <h3>Branch: {val.branch}</h3>
-                                    <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                    <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work20))}</>
-                                  </div>
-                                  </div>)
+                                  return   (
+                                  <tr>
+                                  <td>{val.firm}</td>
+                                  <td>{val.branch}</td> 
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work20))}</td>
+                                  <td>      <button onClick={() => {
+                                  setCusTimeoffered(date);
+                                  setCusUsage(usage);
+                                  setCusWallbox(wallbox)
+                                  setCusBattery(battery);
+                                  setCusModules(module)
+                                  setCusBranchSelected(val.firm)
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work20)));
+                                  setCusPostalCode(postal)
+                                  } }> Teke to firm </button></td>
+                                </tr>)
                           }
                               if (module > 20 && module <=50){
-                                return   (<div className="employee">
-                                <div>
-                                  <h3>Firm: {val.firm}</h3>
-                                  <h3>Branch: {val.branch}</h3>
-                                  <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                  <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work50))}</>
-                                </div>
-                                </div>)
+                                return   (
+                                 <tr>
+                                 <td>{val.firm}</td>
+                                 <td>{val.branch}</td> 
+                                 <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work50))}</td>
+                                 <td>      <button onClick={() => {
+                                 setCusTimeoffered(date);
+                                 setCusUsage(usage);
+                                 setCusWallbox(wallbox)
+                                 setCusBattery(battery);
+                                 setCusModules(module)
+                                 setCusBranchSelected(val.firm)
+                                 setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stone + (module * val.work50)));
+                                 setCusPostalCode(postal)
+                                 } }> Teke to firm </button></td>
+                               </tr>)
                               }
                             if (module > 50){
-                              return   (<div className="employee">
-                              <div>
-                                <h3>Firm: {val.firm}</h3>
-                                <h3>Branch: {val.branch}</h3>
-                                <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work100))}</>
-                              </div>
-                              </div>)
+                              return   (
+                               <tr>
+                               <td>{val.firm}</td>
+                               <td>{val.branch}</td> 
+                               <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work100))}</td>
+                               <td>      <button onClick={() => {
+                               setCusTimeoffered(date);
+                               setCusUsage(usage);
+                               setCusWallbox(wallbox)
+                               setCusBattery(battery);
+                               setCusModules(module)
+                               setCusBranchSelected(val.firm)
+                               setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.stone + (module * val.work100)));
+                               setCusPostalCode(postal)
+                               } }> Teke to firm </button></td>
+                             </tr>)
                             }
   
                 }
@@ -1281,24 +1611,41 @@ if ( battery === 0) {
                         if (year === 20) {
                           {/* Dividing based on modules */}      
                                   if (module <= 15){
-                                      return   (<div className="employee">
-                                      <div>
-                                        <h3>Firm: {val.firm}</h3>
-                                        <h3>Branch: {val.branch}</h3>
-                                        <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                        <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work10))}</>
-                                      </div>
-                                      </div>)
+                                      return   (
+                                      <tr>
+                                      <td>{val.firm}</td>
+                                      <td>{val.branch}</td> 
+                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work10))}</td>
+                                      <td>      <button onClick={() => {
+                                      setCusTimeoffered(date);
+                                      setCusUsage(usage);
+                                      setCusWallbox(wallbox)
+                                      setCusBattery(battery);
+                                      setCusModules(module)
+                                      setCusBranchSelected(val.firm)
+                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work10)));
+                                      setCusPostalCode(postal)
+                                      } }> Teke to firm </button></td>
+                                    </tr>)
                                   }
                                   if (module > 10 && module <= 20){
-                                    return   (<div className="employee">
-                                    <div>
-                                      <h3>Firm: {val.firm}</h3>
-                                      <h3>Branch: {val.branch}</h3>
-                                      <h3>Price : { ( 0.37* (module * (val.modprice + val.uc)) + val.wYes + val.byesone + val.stone + (module * val.work10))}</h3>
-                                      <>test: {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work20))}</>
-                                    </div>
-                                    </div>)
+                                    return   (
+                                    <tr>
+                                    <td>{val.firm}</td>
+                                    <td>{val.branch}</td> 
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work20))}</td>
+                                    <td>      <button onClick={() => {
+                                    setCusTimeoffered(date);
+                                    setCusUsage(usage);
+                                    setCusWallbox(wallbox)
+                                    setCusBattery(battery);
+                                    setCusModules(module)
+                                    setCusBranchSelected(val.firm)
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree + val.sttwo + (module * val.work20)));
+                                    setCusPostalCode(postal)
+                                    } }> Teke to firm </button></td>
+                                  </tr>
+                                  )
                             }
                                 if (module > 20 && module <=50){
                                   return   (<div className="employee">
@@ -3825,6 +4172,9 @@ if ( battery === 1) {
 }
 
     })}
+    </table>                               
+                                </div>
+                                  </div>
 
 
       <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextChange}>
@@ -3846,7 +4196,7 @@ if ( battery === 1) {
         <Typography>  
         
         <>
-        <InfoIcon color="success" onClick={handleClickP}/>
+        <InfoIcon color="success" onClick={e => handleClickP(e, 9)}/>
 
         <Popover
         id={id}
@@ -3862,8 +4212,7 @@ if ( battery === 1) {
           horizontal: 'left',
         }}
       >
-        <Typography sx={{ p: 2 }}>Als nächstes werden wir Sie kontaktieren, um weitere angebotsrelevante 
-        Details abzufragen, sodass wir Ihnen ein personalisiertes Angebot zustellen können.</Typography>
+       
       </Popover>
 
        
