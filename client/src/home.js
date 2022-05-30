@@ -725,9 +725,9 @@ setCusPostalCode(postal)
 
 
     {/* ++++++++++++++++++++++++++++++++++++++++++++++Drop Down six +++++++++++++++++++++++++++++++++++++++++++ */} 
-    <Accordion expanded={expanded === 6} onChange={handleChange(6)}>
+    <Accordion expanded={expanded === 7} onChange={handleChange(7)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-        <Typography>Step 6: Module or size</Typography>
+        <Typography>Step 7: Module or size</Typography>
       </AccordionSummary>
       <AccordionDetails>
         <Typography>  
@@ -746,13 +746,13 @@ setCusPostalCode(postal)
           horizontal: 'left',
         }}
       >
-  
+       
       </Popover>    
 
       {/* solar panel and meters */} 
       <div id="info">
       <h2> Wie viele Module passen maximal auf ihr Dach</h2>
-      <InfoIcon color="success" onClick={e => handleClickP(e, 6)}/>
+      <InfoIcon color="success" onClick={e => handleClickP(e, 7)}/>
       </div>
       
        <Box
@@ -766,81 +766,54 @@ setCusPostalCode(postal)
 
     {/* solar panel and meters */}   
 
-      <TextField 
-      id="outlined-basic" 
-      label="module" 
-      value={module}
-      onChange={handleModule}
-      variant="outlined" />
+    {module == 0 &&
+       <TextField 
+       id="size" 
+       label="size" 
+       value={size}
+       onChange={handleSize}
+       variant="outlined" />
+      }
 
+{module >= 1 &&
+       <TextField 
+       disabled
+       id="size" 
+       label="size" 
+       value={size}
+       onChange={handleSize}
+       variant="outlined" />
+      }
 
-      <TextField 
-      id="" 
-      label="Size" 
-      value={size}
-      onChange={handleSize}
-      variant="outlined" />
+{size >= 1 &&
+       <TextField 
+       disabled
+       id="module" 
+       label="module" 
+       value={module}
+       onChange={handleModule}
+       variant="outlined" />
+      }
+
+{size== 0 &&
+       <TextField 
+       id="module" 
+       label="module" 
+       value={module}
+       onChange={handleModule}
+       variant="outlined" />
+      }
+
     </Box>
       
     <i class="bi bi-info-circle"></i>
 
-      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextChange}>
-        Weiter
-      </Button>
-
-
-        </Typography>
-      </AccordionDetails>
-    </Accordion>
-
-
-    
-    {/* ++++++++++++++++++++++++++++Drop Down seven +++++++++++++++++++++++++++++++++++++++++++ */} 
-    <Accordion expanded={expanded === 7} onChange={handleChange(7)}>
-      <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-        <Typography>Step 7: Anzahl module</Typography>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Typography>  
-    
-        <Popover
-        id={id}
-        open={openPopper}
-        anchorEl={anchorEl}
-        onClose={handleCloseP}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right',
-        }}
-        transformOrigin={{
-          vertical: 'center',
-          horizontal: 'left',
-        }}
-      >
-        
-      </Popover>    
-      
-
-    {/* Slider 2*/}
-
-    <Box sx={{ m: 3 }} />
-      <Typography gutterBottom>Wahlen Sie die Anzahl Module</Typography>
-      <InfoIcon color="success" onClick={e => handleClickP(e, 7)}/>
-      <PrettoSlider
-        valueLabelDisplay="auto"
-        aria-label="pretto slider"
-        defaultValue={module}
-      />
-
 
     <Button onClick={getEmployee}>Calulate</Button>
 
- 
-    
-  
-        
-      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextChange}>
-        Angebot anzelgen
+
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel7'} onClick={nextChange}>
+        Weiter
       </Button>
 
 
@@ -926,7 +899,7 @@ if ( battery === 0) {
                                   <tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td>{((val.modprice * module) + (val.uc * module) + val.w   val.byesone + val.stone + (module * val.work20))}</td>
+                                    <td>{((val.modprice * module) + (val.uc * module) + val.wno+   val.byesone + val.stone + (module * val.work20))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -1737,7 +1710,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesthree  + val.stthree + (module * val.work50)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+  + (module * val.work50)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2169,7 +2142,7 @@ if ( battery === 0) {
                                <tr>
                                <td>{val.firm}</td>
                                <td>{val.branch}</td> 
-                               <td>  {((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.stone + (module * val.work10))}</td>
+                               <td>  {((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stone + (module * val.work10))}</td>
                                <td>      <button onClick={() => {
                                setCusTimeoffered(date);
                                setCusUsage(usage);
@@ -2177,7 +2150,7 @@ if ( battery === 0) {
                                setCusBattery(battery);
                                setCusModules(module)
                                setCusBranchSelected(val.firm)
-                               setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.stone + (module * val.work10)));
+                               setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stone + (module * val.work10)));
                                setCusPostalCode(postal)
                                } }> Teke to firm </button></td>
                              </tr>)
@@ -2187,7 +2160,7 @@ if ( battery === 0) {
                                 <tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td>  {((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.stone + (module * val.work20))}</td>
+                                <td>  {((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stone + (module * val.work20))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2195,7 +2168,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.stone + (module * val.work20)));
+                                setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stone + (module * val.work20)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2204,7 +2177,7 @@ if ( battery === 0) {
                             return   ( <tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td>  {((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.stone + (module * val.work50))}</td>
+                              <td>  {((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stone + (module * val.work50))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -2212,7 +2185,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.stone + (module * val.work50)));
+                              setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stone + (module * val.work50)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -2221,7 +2194,7 @@ if ( battery === 0) {
                           return   ( <tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td>  {((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.stone + (module * val.work100))}</td>
+                            <td>  {((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stone + (module * val.work100))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -2229,7 +2202,7 @@ if ( battery === 0) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.stone + (module * val.work100)));
+                            setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stone + (module * val.work100)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
