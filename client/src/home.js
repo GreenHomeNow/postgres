@@ -356,7 +356,7 @@ setCusPostalCode(postal)
     console.log(response.data.rows);
     console.log("Hello postal"+postal);
     setFirms(response.data.rows);
-
+    setExpanded(expanded + 1 )
     }catch (err) {}
         
   };
@@ -725,7 +725,7 @@ setCusPostalCode(postal)
 
 
     {/* ++++++++++++++++++++++++++++++++++++++++++++++Drop Down six +++++++++++++++++++++++++++++++++++++++++++ */} 
-    <Accordion expanded={expanded === 7} onChange={handleChange(7)}>
+    <Accordion expanded={expanded === 6} onChange={handleChange(6)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 7: Module or size</Typography>
       </AccordionSummary>
@@ -808,11 +808,7 @@ setCusPostalCode(postal)
       
     <i class="bi bi-info-circle"></i>
 
-
-    <Button onClick={getEmployee}>Calulate</Button>
-
-
-      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel7'} onClick={nextChange}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={getEmployee}>
         Weiter
       </Button>
 
@@ -824,7 +820,7 @@ setCusPostalCode(postal)
 
 
  {/* ++++++++++++++++++++++++++++++++++++++++++++++++Drop Down Eight +++++++++++++++++++++++++++++++++++++++++++ */} 
- <Accordion expanded={expanded === 8} onChange={handleChange(8)}>
+ <Accordion expanded={expanded === 7} onChange={handleChange(7)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 8: Results</Typography>
       </AccordionSummary>
@@ -848,7 +844,7 @@ setCusPostalCode(postal)
       </Popover>
 
 
-        <InfoIcon color="success" onClick={e => handleClickP(e, 8)}/>
+        <InfoIcon color="success" onClick={e => handleClickP(e, 7)}/>
 
       {/* Result Table */}
       <div className="employee">                                  
@@ -2217,7 +2213,7 @@ if ( battery === 0) {
                                   <tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td>   {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
+                                  <td>   {((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.sttwo + (module * val.work10))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2225,7 +2221,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
+                                  setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.sttwo + (module * val.work10)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2234,7 +2230,7 @@ if ( battery === 0) {
                                 return   ( <tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td>   {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20))}</td>
+                                  <td>   {((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.sttwo + (module * val.work20))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2242,7 +2238,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20)));
+                                  setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.sttwo + (module * val.work20)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2251,7 +2247,7 @@ if ( battery === 0) {
                               return   ( <tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td>   {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50))}</td>
+                                <td>   {((val.modprice * module) + (val.uc * module) +val.no + val.byesone + val.sttwo + (module * val.work50))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2259,7 +2255,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50)));
+                                setCusPriceOffered( ((val.modprice * module) + (val.uc * module) +val.no + val.byesone + val.sttwo+ (module * val.work50)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2268,7 +2264,7 @@ if ( battery === 0) {
                             return   ( <tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td>   {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100))}</td>
+                              <td>   {((val.modprice * module) + (val.uc * module) + val.no + val.byesone + val.sttwo + (module * val.work100))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -2276,7 +2272,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered( ((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100)));
+                              setCusPriceOffered( ((val.modprice * module) + (val.uc * module) +val.no + val.byesone + val.sttwo + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -2291,7 +2287,7 @@ if ( battery === 0) {
                                  <tr>
                                  <td>{val.firm}</td>
                                  <td>{val.branch}</td> 
-                                 <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
+                                 <td> {((val.modprice * module) + (val.uc * module) +val.wno + val.byesone + val.stthree + (module * val.work10))}</td>
                                  <td>      <button onClick={() => {
                                  setCusTimeoffered(date);
                                  setCusUsage(usage);
@@ -2299,7 +2295,7 @@ if ( battery === 0) {
                                  setCusBattery(battery);
                                  setCusModules(module)
                                  setCusBranchSelected(val.firm)
-                                 setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
+                                 setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stthree + (module * val.work10)));
                                  setCusPostalCode(postal)
                                  } }> Teke to firm </button></td>
                                </tr>)
@@ -2308,7 +2304,7 @@ if ( battery === 0) {
                               return   ( <tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stthree + (module * val.work20))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2316,7 +2312,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stthree + (module * val.work20)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2325,7 +2321,7 @@ if ( battery === 0) {
                             return   ( <tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stthree + (module * val.work50))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -2333,7 +2329,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stthree + (module * val.work50)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -2342,7 +2338,7 @@ if ( battery === 0) {
                           return   ( <tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100))}</td>
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stthree + (module * val.work100))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -2350,7 +2346,7 @@ if ( battery === 0) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100)));
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stthree + (module * val.work100)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
@@ -2365,7 +2361,7 @@ if ( battery === 0) {
                                 <tr>
                                <td>{val.firm}</td>
                                <td>{val.branch}</td> 
-                               <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
+                               <td>{((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stfour + (module * val.work10))}</td>
                                <td>      <button onClick={() => {
                                setCusTimeoffered(date);
                                setCusUsage(usage);
@@ -2373,7 +2369,7 @@ if ( battery === 0) {
                                setCusBattery(battery);
                                setCusModules(module)
                                setCusBranchSelected(val.firm)
-                               setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
+                               setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stfour + (module * val.work10)));
                                setCusPostalCode(postal)
                                } }> Teke to firm </button></td>
                              </tr>
@@ -2384,7 +2380,7 @@ if ( battery === 0) {
                               <tr>
                              <td>{val.firm}</td>
                              <td>{val.branch}</td> 
-                             <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20))}</td>
+                             <td>{((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stfour + (module * val.work20))}</td>
                              <td>      <button onClick={() => {
                              setCusTimeoffered(date);
                              setCusUsage(usage);
@@ -2392,7 +2388,7 @@ if ( battery === 0) {
                              setCusBattery(battery);
                              setCusModules(module)
                              setCusBranchSelected(val.firm)
-                             setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20)));
+                             setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stfour + (module * val.work20)));
                              setCusPostalCode(postal)
                              } }> Teke to firm </button></td>
                            </tr>)
@@ -2402,7 +2398,7 @@ if ( battery === 0) {
                            <tr>
                            <td>{val.firm}</td>
                            <td>{val.branch}</td> 
-                           <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50))}</td>
+                           <td>{((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stfour + (module * val.work50))}</td>
                            <td>      <button onClick={() => {
                            setCusTimeoffered(date);
                            setCusUsage(usage);
@@ -2410,7 +2406,7 @@ if ( battery === 0) {
                            setCusBattery(battery);
                            setCusModules(module)
                            setCusBranchSelected(val.firm)
-                           setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work50)));
+                           setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stfour + (module * val.work50)));
                            setCusPostalCode(postal)
                            } }> Teke to firm </button></td>
                          </tr>)
@@ -2420,7 +2416,7 @@ if ( battery === 0) {
                          <tr>
                          <td>{val.firm}</td>
                          <td>{val.branch}</td> 
-                         <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100))}</td>
+                         <td>{((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stfour + (module * val.work100))}</td>
                          <td>      <button onClick={() => {
                          setCusTimeoffered(date);
                          setCusUsage(usage);
@@ -2428,7 +2424,7 @@ if ( battery === 0) {
                          setCusBattery(battery);
                          setCusModules(module)
                          setCusBranchSelected(val.firm)
-                         setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work100)));
+                         setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesone + val.stfour + (module * val.work100)));
                          setCusPostalCode(postal)
                          } }> Teke to firm </button></td>
                        </tr>)
@@ -2446,7 +2442,7 @@ if ( battery === 0) {
                                     <tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td>{((val.modprice * module) + (val.uc * module) + val.wno  + val.byestwo + val.stone + (module * val.work10))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -2454,7 +2450,7 @@ if ( battery === 0) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.byestwo + val.stone + (module * val.work10)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -2464,7 +2460,7 @@ if ( battery === 0) {
                                   <tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work20))}</td>
+                                  <td>{((val.modprice * module) + (val.uc * module) + val.wno  + val.byestwo + val.stone + (module * val.work20))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2472,7 +2468,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work20)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.byestwo + val.stone + (module * val.work20)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>
@@ -2483,7 +2479,7 @@ if ( battery === 0) {
                                 <tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work50))}</td>
+                                <td>{((val.modprice * module) + (val.uc * module) + val.wno  + val.byestwo + val.stone + (module * val.work50))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2491,7 +2487,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work50)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.byestwo + val.stone + (module * val.work50)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2500,7 +2496,7 @@ if ( battery === 0) {
                             return   (  <tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100))}</td>
+                              <td>{((val.modprice * module) + (val.uc * module) + val.wno  + val.byestwo + val.stone + (module * val.work100))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -2508,7 +2504,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.byestwo + val.stone + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -2523,7 +2519,7 @@ if ( battery === 0) {
                                       <tr>
                                       <td>{val.firm}</td>
                                       <td>{val.branch}</td> 
-                                      <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo+ val.stone + (module * val.work10))}</td>
+                                      <td>{((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo+ val.sttwo + (module * val.work10))}</td>
                                       <td>      <button onClick={() => {
                                       setCusTimeoffered(date);
                                       setCusUsage(usage);
@@ -2531,7 +2527,7 @@ if ( battery === 0) {
                                       setCusBattery(battery);
                                       setCusModules(module)
                                       setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo+ val.stone + (module * val.work10)));
+                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo+ val.sttwo + (module * val.work10)));
                                       setCusPostalCode(postal)
                                       } }> Teke to firm </button></td>
                                     </tr>)
@@ -2541,7 +2537,7 @@ if ( battery === 0) {
                                     <tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work50))}</td>
+                                    <td>{((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo+ val.sttwo + (module * val.work50))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -2549,7 +2545,7 @@ if ( battery === 0) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work50)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo+ val.sttwo + (module * val.work50)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -2559,7 +2555,7 @@ if ( battery === 0) {
                                   <tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work50))}</td>
+                                  <td>{((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo+ val.sttwo + (module * val.work50))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2567,7 +2563,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work50)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo+ val.sttwo + (module * val.work50)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2577,7 +2573,7 @@ if ( battery === 0) {
                                 <tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo+ val.sttwo + (module * val.work100))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2585,7 +2581,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo+ val.sttwo + (module * val.work100)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2600,7 +2596,7 @@ if ( battery === 0) {
                                     <tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stthree + (module * val.work10))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2608,7 +2604,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stthree + (module * val.work10)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2618,7 +2614,7 @@ if ( battery === 0) {
                                  <tr>
                                  <td>{val.firm}</td>
                                  <td>{val.branch}</td> 
-                                 <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work20))}</td>
+                                 <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stthree + (module * val.work20))}</td>
                                  <td>      <button onClick={() => {
                                  setCusTimeoffered(date);
                                  setCusUsage(usage);
@@ -2626,7 +2622,7 @@ if ( battery === 0) {
                                  setCusBattery(battery);
                                  setCusModules(module)
                                  setCusBranchSelected(val.firm)
-                                 setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work20)));
+                                 setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stthree + (module * val.work20)));
                                  setCusPostalCode(postal)
                                  } }> Teke to firm </button></td>
                                </tr>)
@@ -2636,7 +2632,7 @@ if ( battery === 0) {
                                <tr>
                                <td>{val.firm}</td>
                                <td>{val.branch}</td> 
-                               <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work50))}</td>
+                               <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stthree + (module * val.work50))}</td>
                                <td>      <button onClick={() => {
                                setCusTimeoffered(date);
                                setCusUsage(usage);
@@ -2644,7 +2640,7 @@ if ( battery === 0) {
                                setCusBattery(battery);
                                setCusModules(module)
                                setCusBranchSelected(val.firm)
-                               setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work50)));
+                               setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stthree + (module * val.work50)));
                                setCusPostalCode(postal)
                                } }> Teke to firm </button></td>
                              </tr>)
@@ -2654,7 +2650,7 @@ if ( battery === 0) {
                              <tr>
                              <td>{val.firm}</td>
                              <td>{val.branch}</td> 
-                             <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100))}</td>
+                             <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stthree + (module * val.work100))}</td>
                              <td>      <button onClick={() => {
                              setCusTimeoffered(date);
                              setCusUsage(usage);
@@ -2662,7 +2658,7 @@ if ( battery === 0) {
                              setCusBattery(battery);
                              setCusModules(module)
                              setCusBranchSelected(val.firm)
-                             setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                             setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stthree + (module * val.work100)));
                              setCusPostalCode(postal)
                              } }> Teke to firm </button></td>
                            </tr>)
@@ -2677,7 +2673,7 @@ if ( battery === 0) {
                                  <tr>
                                  <td>{val.firm}</td>
                                  <td>{val.branch}</td> 
-                                 <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                 <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stfour + (module * val.work10))}</td>
                                  <td>      <button onClick={() => {
                                  setCusTimeoffered(date);
                                  setCusUsage(usage);
@@ -2685,7 +2681,7 @@ if ( battery === 0) {
                                  setCusBattery(battery);
                                  setCusModules(module)
                                  setCusBranchSelected(val.firm)
-                                 setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                 setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wno + val.byestwo + val.stfour + (module * val.work10)));
                                  setCusPostalCode(postal)
                                  } }> Teke to firm </button></td>
                                </tr>)
@@ -2694,7 +2690,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stfour + (module * val.work20))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2702,7 +2698,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stfour + (module * val.work20)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2711,7 +2707,7 @@ if ( battery === 0) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stfour + (module * val.work50))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -2719,7 +2715,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stfour + (module * val.work50)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -2728,7 +2724,7 @@ if ( battery === 0) {
                           return   (<tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stfour + (module * val.work100))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -2736,7 +2732,7 @@ if ( battery === 0) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byestwo + val.stfour + (module * val.work100)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
@@ -2753,7 +2749,7 @@ if ( battery === 0) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stone + (module * val.work10))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -2761,7 +2757,7 @@ if ( battery === 0) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) +  val.wno + val.byesthree + val.stone + (module * val.work10)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -2770,7 +2766,7 @@ if ( battery === 0) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) +  val.wno + val.byesthree + val.stone + (module * val.work20))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2778,7 +2774,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stone + (module * val.work20)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2787,7 +2783,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stone  + (module * val.work50))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2795,7 +2791,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) +  val.wno + val.byesthree + val.stone  + (module * val.work50)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2804,7 +2800,7 @@ if ( battery === 0) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stone  + (module * val.work100))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -2812,7 +2808,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) +  val.wno + val.byesthree + val.stone + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -2826,7 +2822,7 @@ if ( battery === 0) {
                                     return   (<tr>
                                       <td>{val.firm}</td>
                                       <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                      <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.sttwo+ (module * val.work10))}</td>
                                       <td>      <button onClick={() => {
                                       setCusTimeoffered(date);
                                       setCusUsage(usage);
@@ -2834,7 +2830,7 @@ if ( battery === 0) {
                                       setCusBattery(battery);
                                       setCusModules(module)
                                       setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.sttwo + (module * val.work10)));
                                       setCusPostalCode(postal)
                                       } }> Teke to firm </button></td>
                                     </tr>)
@@ -2843,7 +2839,7 @@ if ( battery === 0) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.sttwo + (module * val.work20))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -2851,7 +2847,7 @@ if ( battery === 0) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wno + val.byesthree + val.sttwo + (module * val.work20)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -2860,7 +2856,7 @@ if ( battery === 0) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.sttwo+ (module * val.work50))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2868,7 +2864,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.sttwo + (module * val.work50)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2877,7 +2873,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.sttwo + (module * val.work100))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2885,7 +2881,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.sttwo + (module * val.work100)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2899,7 +2895,7 @@ if ( battery === 0) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stthree + (module * val.work10))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -2907,7 +2903,7 @@ if ( battery === 0) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stthree  + (module * val.work100)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -2916,7 +2912,7 @@ if ( battery === 0) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stthree  + (module * val.work20))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2924,7 +2920,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wno + val.byesthree + val.stthree + (module * val.work20)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2933,7 +2929,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) +val.wno + val.byesthree + val.stthree  + (module * val.work50))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2941,7 +2937,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wno + val.byesthree + val.stthree + (module * val.work50)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -2950,7 +2946,7 @@ if ( battery === 0) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) +val.wno + val.byesthree + val.stthree + (module * val.work100))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -2958,7 +2954,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stthree + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -2972,7 +2968,7 @@ if ( battery === 0) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stfour + (module * val.work10))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -2980,7 +2976,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stfour  + (module * val.work10)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -2989,7 +2985,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stfour  + (module * val.work20))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -2997,7 +2993,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stfour + (module * val.work20)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3006,7 +3002,7 @@ if ( battery === 0) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stfour + (module * val.work50))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -3014,7 +3010,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wno + val.byesthree + val.stfour  + (module * val.work50)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -3023,7 +3019,7 @@ if ( battery === 0) {
                           return   (<tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stfour + (module * val.work100))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -3031,7 +3027,7 @@ if ( battery === 0) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesthree + val.stfour  + (module * val.work100)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
@@ -3048,7 +3044,7 @@ if ( battery === 0) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stone + (module * val.work10))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -3056,7 +3052,7 @@ if ( battery === 0) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wno + val.byesfour + val.stone + (module * val.work1 )));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -3065,7 +3061,7 @@ if ( battery === 0) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byessfour + val.stone + (module * val.work20))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -3073,7 +3069,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stone + (module * val.work20)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -3082,7 +3078,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stone + (module * val.work50))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -3090,7 +3086,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stone + (module * val.work50)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3099,7 +3095,7 @@ if ( battery === 0) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stone+ (module * val.work100))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -3107,7 +3103,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wno + val.byesfour + val.stone + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -3121,7 +3117,7 @@ if ( battery === 0) {
                                     return   (<tr>
                                       <td>{val.firm}</td>
                                       <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                      <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.sttwo + (module * val.work10))}</td>
                                       <td>      <button onClick={() => {
                                       setCusTimeoffered(date);
                                       setCusUsage(usage);
@@ -3129,7 +3125,7 @@ if ( battery === 0) {
                                       setCusBattery(battery);
                                       setCusModules(module)
                                       setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno+  val.byesfour + val.sttwo + (module * val.work10)));
                                       setCusPostalCode(postal)
                                       } }> Teke to firm </button></td>
                                     </tr>)
@@ -3138,7 +3134,7 @@ if ( battery === 0) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wno+  val.byesfour + val.sttwo + (module * val.work20))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -3146,7 +3142,7 @@ if ( battery === 0) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno+ val.byesfour + val.sttwo + (module * val.work20)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -3155,7 +3151,7 @@ if ( battery === 0) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno+ val.byesfour + val.sttwo + (module * val.work50))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -3163,7 +3159,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno+  val.byesfour + val.sttwo + (module * val.work50)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -3172,7 +3168,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno+  val.byesfour + val.sttwo + (module * val.work100))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -3180,7 +3176,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno+  val.byesfour + val.sttwo + (module * val.work100)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3194,7 +3190,7 @@ if ( battery === 0) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wno+  val.byesfour + val.stthree + (module * val.work10))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -3202,7 +3198,7 @@ if ( battery === 0) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno+  val.byesfour + val.stthree  + (module * val.work10)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -3211,7 +3207,7 @@ if ( battery === 0) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno +  val.byesfour + val.stthree  + (module * val.work20))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -3219,7 +3215,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno +  val.byesfour + val.stthree  + (module * val.work20)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -3228,7 +3224,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno +  val.byesfour + val.stthree  + (module * val.work50))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -3236,7 +3232,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno +  val.byesfour + val.stthree  + (module * val.work50)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3245,7 +3241,7 @@ if ( battery === 0) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno +  val.byesfour + val.stthree + (module * val.work100))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -3253,7 +3249,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno +  val.byesfour + val.stthree  + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -3267,7 +3263,7 @@ if ( battery === 0) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stfour + (module * val.work10))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -3275,7 +3271,7 @@ if ( battery === 0) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stfour + (module * val.work10)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -3284,7 +3280,7 @@ if ( battery === 0) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno+ val.byesfour + val.stfour + (module * val.work20))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -3292,7 +3288,7 @@ if ( battery === 0) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stfour + (module * val.work20)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3301,7 +3297,7 @@ if ( battery === 0) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stfour + (module * val.work50))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -3309,7 +3305,7 @@ if ( battery === 0) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stfour + (module * val.work50)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -3318,7 +3314,7 @@ if ( battery === 0) {
                           return   (<tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stfour + (module * val.work100))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -3326,7 +3322,7 @@ if ( battery === 0) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno + val.byesfour + val.stfour + (module * val.work100)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
@@ -3342,12 +3338,12 @@ if ( battery === 0) {
 
 
 {/*======================================= Battery NO ===========================================*/}
-
+{/* if battery is no calculate nothing for battery */}
 if ( battery === 1) {
   {/* Wallbox yes */}
     if (wallbox === 0) {
       {/* Usage 1 */}    
-          if (usage === 10) {
+         
             {/* Year 1 */}    
                   if (year === 10) {
                      {/* Dividing based on modules */}      
@@ -3355,7 +3351,7 @@ if ( battery === 1) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes + val.stone + (module * val.work10))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -3363,7 +3359,7 @@ if ( battery === 1) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes + val.stone + (module * val.work10)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -3372,7 +3368,7 @@ if ( battery === 1) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes + val.stone + (module * val.work20))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -3380,7 +3376,7 @@ if ( battery === 1) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.stone + (module * val.work20)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -3389,7 +3385,7 @@ if ( battery === 1) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes + val.stone + (module * val.work50))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -3397,7 +3393,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes + val.stone + (module * val.work50)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3406,7 +3402,7 @@ if ( battery === 1) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes + val.stone + (module * val.work100))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -3414,7 +3410,7 @@ if ( battery === 1) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes + val.stone + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -3428,7 +3424,7 @@ if ( battery === 1) {
                                     return   (<tr>
                                       <td>{val.firm}</td>
                                       <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+  val.sttwo + (module * val.work10))}</td>
                                       <td>      <button onClick={() => {
                                       setCusTimeoffered(date);
                                       setCusUsage(usage);
@@ -3436,7 +3432,7 @@ if ( battery === 1) {
                                       setCusBattery(battery);
                                       setCusModules(module)
                                       setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+  val.sttwo + (module * val.work10)));
                                       setCusPostalCode(postal)
                                       } }> Teke to firm </button></td>
                                     </tr>)
@@ -3445,7 +3441,7 @@ if ( battery === 1) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+  val.sttwo + (module * val.work20))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -3453,7 +3449,7 @@ if ( battery === 1) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+  val.sttwo + (module * val.work20)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -3462,7 +3458,7 @@ if ( battery === 1) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+  val.sttwo + (module * val.work50))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -3470,7 +3466,7 @@ if ( battery === 1) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wyes+  val.sttwo + (module * val.work50)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -3479,7 +3475,7 @@ if ( battery === 1) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) +val.wyes+  val.sttwo+ (module * val.work100))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -3487,7 +3483,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+  val.sttwo + (module * val.work100)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3501,7 +3497,7 @@ if ( battery === 1) {
                                   return   (<tr>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+  val.stthree + (module * val.work10))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     setCusUsage(usage);
@@ -3509,7 +3505,7 @@ if ( battery === 1) {
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wyes+  val.stthree+ (module * val.work10)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
                                   </tr>)
@@ -3518,7 +3514,7 @@ if ( battery === 1) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) +val.wyes+  val.stthree + (module * val.work20))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -3526,7 +3522,7 @@ if ( battery === 1) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wyes+  val.stthree+ (module * val.work20)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -3535,7 +3531,7 @@ if ( battery === 1) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) +val.wyes+  val.stthree+ (module * val.work50))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -3543,7 +3539,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+  val.stthree + (module * val.work50)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3552,7 +3548,7 @@ if ( battery === 1) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+  val.stthree+ (module * val.work100))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -3560,7 +3556,7 @@ if ( battery === 1) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) +val.wyes+  val.stthree + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -3574,7 +3570,7 @@ if ( battery === 1) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes + val.stfour + (module * val.work10))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -3582,7 +3578,7 @@ if ( battery === 1) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes + val.stfour + (module * val.work10)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -3591,7 +3587,7 @@ if ( battery === 1) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) +val.wyes + val.stfour + (module * val.work20))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -3599,7 +3595,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes + val.stfour+ (module * val.work20)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -3608,7 +3604,7 @@ if ( battery === 1) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes + val.stfour+ (module * val.work50))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -3616,7 +3612,7 @@ if ( battery === 1) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes + val.stfour + (module * val.work50)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -3625,7 +3621,7 @@ if ( battery === 1) {
                           return   (<tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes + val.stfour + (module * val.work100))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -3633,899 +3629,15 @@ if ( battery === 1) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes + val.stfour+ (module * val.work100)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
                         }
 
-              }
+              
           }
-    {/* Usage 2 */}    
-            if (usage === 10) {
-              {/* Year 1 */}    
-                    if (year === 10) {
-                       {/* Dividing based on modules */}      
-                                if (module < 10){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-  
-                }
-                 {/* Year 2 */}   
-                        if (year === 20) {
-                          {/* Dividing based on modules */}      
-                                  if (module <= 15){
-                                      return   (<tr>
-                                        <td>{val.firm}</td>
-                                        <td>{val.branch}</td> 
-                                        <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                        <td>      <button onClick={() => {
-                                        setCusTimeoffered(date);
-                                        setCusUsage(usage);
-                                        setCusWallbox(wallbox)
-                                        setCusBattery(battery);
-                                        setCusModules(module)
-                                        setCusBranchSelected(val.firm)
-                                        setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                        setCusPostalCode(postal)
-                                        } }> Teke to firm </button></td>
-                                      </tr>)
-                                  }
-                                  if (module > 10 && module <= 20){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                            }
-                                if (module > 20 && module <=50){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                                }
-                              if (module > 50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-  
-                    }
-                      {/* Year 3 */}   
-                      if (year === 30) {
-                        {/* Dividing based on modules */}      
-                                if (module <= 15){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-  
-                  }
-                    {/* Year 4 */}   
-                    if (year === 40) {
-                      {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-  
-                }
-      }
-            {/* Usage 3 */}    
-            if (usage === 30) {
-              {/* Year 1 */}    
-                    if (year === 10) {
-                       {/* Dividing based on modules */}      
-                                if (module <= 15){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-  
-                }
-                 {/* Year 2 */}   
-                        if (year === 20) {
-                          {/* Dividing based on modules */}      
-                                  if (module <= 15){
-                                      return  ( <tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                  }
-                                  if (module > 10 && module <= 20){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                            }
-                                if (module > 20 && module <=50){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                                }
-                              if (module > 50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-  
-                    }
-                      {/* Year 3 */}   
-                      if (year === 30) {
-                        {/* Dividing based on modules */}      
-                                if (module <= 15){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-  
-                  }
-                    {/* Year 4 */}   
-                    if (year === 40) {
-                      {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-  
-                }  
-              }
-            {/* Usage 4 */}    
-            if (usage === 40) {
-              {/* Year 1 */}    
-                    if (year === 10) {
-                       {/* Dividing based on modules */}      
-                                if (module <= 15){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-  
-                }
-                 {/* Year 2 */}   
-                        if (year === 20) {
-                          {/* Dividing based on modules */}      
-                                  if (module <= 15){
-                                      return   (<tr>
-                                        <td>{val.firm}</td>
-                                        <td>{val.branch}</td> 
-                                        <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                        <td>      <button onClick={() => {
-                                        setCusTimeoffered(date);
-                                        setCusUsage(usage);
-                                        setCusWallbox(wallbox)
-                                        setCusBattery(battery);
-                                        setCusModules(module)
-                                        setCusBranchSelected(val.firm)
-                                        setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                        setCusPostalCode(postal)
-                                        } }> Teke to firm </button></td>
-                                      </tr>)
-                                  }
-                                  if (module > 10 && module <= 20){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                            }
-                                if (module > 20 && module <=50){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                                }
-                              if (module > 50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-  
-                    }
-                      {/* Year 3 */}   
-                      if (year === 30) {
-                        {/* Dividing based on modules */}      
-                                if (module <= 15){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-  
-                  }
-                    {/* Year 4 */}   
-                    if (year === 40) {
-                      {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (
-                              <tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-  
-                }
+    
       }
 
 
@@ -4543,7 +3655,7 @@ if ( battery === 1) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno +  val.stone + (module * val.work10))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -4551,7 +3663,7 @@ if ( battery === 1) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno +  val.stone+ (module * val.work100)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -4560,7 +3672,7 @@ if ( battery === 1) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno +  val.stone + (module * val.work10))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -4568,7 +3680,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno +  val.stone + (module * val.work100)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -4577,7 +3689,7 @@ if ( battery === 1) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno +  val.stone + (module * val.work10))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -4585,7 +3697,7 @@ if ( battery === 1) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno +  val.stone + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -4594,7 +3706,7 @@ if ( battery === 1) {
                           return   (<tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wno +  val.stone + (module * val.work10))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -4602,7 +3714,7 @@ if ( battery === 1) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno +  val.stone + (module * val.work100)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
@@ -4615,7 +3727,7 @@ if ( battery === 1) {
                               if (module <= 15)(<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.sttwo + (module * val.work10))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -4623,7 +3735,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.sttwo+ (module * val.work100)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -4634,7 +3746,7 @@ if ( battery === 1) {
                                 <tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.sttwo + (module * val.work10))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -4642,7 +3754,7 @@ if ( battery === 1) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.sttwo+ (module * val.work100)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -4651,7 +3763,7 @@ if ( battery === 1) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.sttwo + (module * val.work10))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -4659,7 +3771,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.sttwo + (module * val.work100)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -4668,7 +3780,7 @@ if ( battery === 1) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.sttwo  + (module * val.work10))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -4676,7 +3788,7 @@ if ( battery === 1) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.sttwo+ (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -4690,7 +3802,7 @@ if ( battery === 1) {
                                 return   (<tr>
                                   <td>{val.firm}</td>
                                   <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                  <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.stthree + (module * val.work10))}</td>
                                   <td>      <button onClick={() => {
                                   setCusTimeoffered(date);
                                   setCusUsage(usage);
@@ -4698,7 +3810,7 @@ if ( battery === 1) {
                                   setCusBattery(battery);
                                   setCusModules(module)
                                   setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.stthree + (module * val.work100)));
                                   setCusPostalCode(postal)
                                   } }> Teke to firm </button></td>
                                 </tr>)
@@ -4707,7 +3819,7 @@ if ( battery === 1) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.stthree + (module * val.work10))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -4715,7 +3827,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.stthree + (module * val.work100)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -4724,7 +3836,7 @@ if ( battery === 1) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.stthree + (module * val.work10))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -4732,7 +3844,7 @@ if ( battery === 1) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.stthree + (module * val.work100)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -4741,7 +3853,7 @@ if ( battery === 1) {
                           return   (<tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.stthree + (module * val.work10))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -4749,7 +3861,7 @@ if ( battery === 1) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.stthree + (module * val.work100)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
@@ -4763,7 +3875,7 @@ if ( battery === 1) {
                               return   (<tr>
                                 <td>{val.firm}</td>
                                 <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                                <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.stfour + (module * val.work10))}</td>
                                 <td>      <button onClick={() => {
                                 setCusTimeoffered(date);
                                 setCusUsage(usage);
@@ -4771,7 +3883,7 @@ if ( battery === 1) {
                                 setCusBattery(battery);
                                 setCusModules(module)
                                 setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.stfour + (module * val.work10)));
                                 setCusPostalCode(postal)
                                 } }> Teke to firm </button></td>
                               </tr>)
@@ -4780,7 +3892,7 @@ if ( battery === 1) {
                             return   (<tr>
                               <td>{val.firm}</td>
                               <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                              <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.stfour + (module * val.work20))}</td>
                               <td>      <button onClick={() => {
                               setCusTimeoffered(date);
                               setCusUsage(usage);
@@ -4788,7 +3900,7 @@ if ( battery === 1) {
                               setCusBattery(battery);
                               setCusModules(module)
                               setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.stfour + (module * val.work20)));
                               setCusPostalCode(postal)
                               } }> Teke to firm </button></td>
                             </tr>)
@@ -4797,7 +3909,7 @@ if ( battery === 1) {
                           return   (<tr>
                             <td>{val.firm}</td>
                             <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                            <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.stfour + (module * val.work50))}</td>
                             <td>      <button onClick={() => {
                             setCusTimeoffered(date);
                             setCusUsage(usage);
@@ -4805,7 +3917,7 @@ if ( battery === 1) {
                             setCusBattery(battery);
                             setCusModules(module)
                             setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.stfour + (module * val.work50)));
                             setCusPostalCode(postal)
                             } }> Teke to firm </button></td>
                           </tr>)
@@ -4814,7 +3926,7 @@ if ( battery === 1) {
                         return   (<tr>
                           <td>{val.firm}</td>
                           <td>{val.branch}</td> 
-                          <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
+                          <td> {((val.modprice * module) + (val.uc * module) + val.wno  + val.stfour + (module * val.work100))}</td>
                           <td>      <button onClick={() => {
                           setCusTimeoffered(date);
                           setCusUsage(usage);
@@ -4822,7 +3934,7 @@ if ( battery === 1) {
                           setCusBattery(battery);
                           setCusModules(module)
                           setCusBranchSelected(val.firm)
-                          setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
+                          setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wno  + val.stfour + (module * val.work100)));
                           setCusPostalCode(postal)
                           } }> Teke to firm </button></td>
                         </tr>)
@@ -4830,896 +3942,15 @@ if ( battery === 1) {
 
             }
         }
-  {/* Usage 2 */}    
-          if (usage === 10) {
-            {/* Year 1 */}    
-                  if (year === 10) {
-                     {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-
-              }
-               {/* Year 2 */}   
-                      if (year === 10) {
-                        {/* Dividing based on modules */}      
-                                if (module <= 15){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-
-                  }
-                    {/* Year 3 */}   
-                    if (year === 10) {
-                      {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-
-                }
-                  {/* Year 4 */}   
-                  if (year === 10) {
-                    {/* Dividing based on modules */}      
-                            if (module <= 15){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                            }
-                            if (module > 10 && module <= 20){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                      }
-                          if (module > 20 && module <=50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-                        if (module > 50){
-                          return   (<tr>
-                            <td>{val.firm}</td>
-                            <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                            <td>      <button onClick={() => {
-                            setCusTimeoffered(date);
-                            setCusUsage(usage);
-                            setCusWallbox(wallbox)
-                            setCusBattery(battery);
-                            setCusModules(module)
-                            setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                            setCusPostalCode(postal)
-                            } }> Teke to firm </button></td>
-                          </tr>)
-                        }
-
-              }
-    }
-          {/* Usage 3 */}    
-          if (usage === 30) {
-            {/* Year 1 */}    
-                  if (year === 10) {
-                     {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-
-              }
-               {/* Year 2 */}   
-                      if (year === 10) {
-                        {/* Dividing based on modules */}      
-                                if (module <= 15){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-
-                  }
-                    {/* Year 3 */}   
-                    if (year === 10) {
-                      {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-
-                }
-                  {/* Year 4 */}   
-                  if (year === 10) {
-                    {/* Dividing based on modules */}      
-                            if (module <= 15){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                            }
-                            if (module > 10 && module <= 20){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                      }
-                          if (module > 20 && module <=50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-                        if (module > 50){
-                          return   (<tr>
-                            <td>{val.firm}</td>
-                            <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                            <td>      <button onClick={() => {
-                            setCusTimeoffered(date);
-                            setCusUsage(usage);
-                            setCusWallbox(wallbox)
-                            setCusBattery(battery);
-                            setCusModules(module)
-                            setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                            setCusPostalCode(postal)
-                            } }> Teke to firm </button></td>
-                          </tr>)
-                        }
-
-              }  
-            }
-          {/* Usage 4 */}    
-          if (usage === 40) {
-            {/* Year 1 */}    
-                  if (year === 10) {
-                     {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-
-              }
-               {/* Year 2 */}   
-                      if (year === 10) {
-                        {/* Dividing based on modules */}      
-                                if (module <= 15){
-                                    return   (<tr>
-                                      <td>{val.firm}</td>
-                                      <td>{val.branch}</td> 
-                                      <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                      <td>      <button onClick={() => {
-                                      setCusTimeoffered(date);
-                                      setCusUsage(usage);
-                                      setCusWallbox(wallbox)
-                                      setCusBattery(battery);
-                                      setCusModules(module)
-                                      setCusBranchSelected(val.firm)
-                                      setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                      setCusPostalCode(postal)
-                                      } }> Teke to firm </button></td>
-                                    </tr>)
-                                }
-                                if (module > 10 && module <= 20){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                          }
-                              if (module > 20 && module <=50){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                              }
-                            if (module > 50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-
-                  }
-                    {/* Year 3 */}   
-                    if (year === 10) {
-                      {/* Dividing based on modules */}      
-                              if (module <= 15){
-                                  return   (<tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>)
-                              }
-                              if (module > 10 && module <= 20){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                        }
-                            if (module > 20 && module <=50){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                            }
-                          if (module > 50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-
-                }
-                  {/* Year 4 */}   
-                  if (year === 10) {
-                    {/* Dividing based on modules */}      
-                            if (module <= 15){
-                                return   (<tr>
-                                  <td>{val.firm}</td>
-                                  <td>{val.branch}</td> 
-                                  <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                  <td>      <button onClick={() => {
-                                  setCusTimeoffered(date);
-                                  setCusUsage(usage);
-                                  setCusWallbox(wallbox)
-                                  setCusBattery(battery);
-                                  setCusModules(module)
-                                  setCusBranchSelected(val.firm)
-                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                  setCusPostalCode(postal)
-                                  } }> Teke to firm </button></td>
-                                </tr>)
-                            }
-                            if (module > 10 && module <= 20){
-                              return   (<tr>
-                                <td>{val.firm}</td>
-                                <td>{val.branch}</td> 
-                                <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                                <td>      <button onClick={() => {
-                                setCusTimeoffered(date);
-                                setCusUsage(usage);
-                                setCusWallbox(wallbox)
-                                setCusBattery(battery);
-                                setCusModules(module)
-                                setCusBranchSelected(val.firm)
-                                setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                                setCusPostalCode(postal)
-                                } }> Teke to firm </button></td>
-                              </tr>)
-                      }
-                          if (module > 20 && module <=50){
-                            return   (<tr>
-                              <td>{val.firm}</td>
-                              <td>{val.branch}</td> 
-                              <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                              <td>      <button onClick={() => {
-                              setCusTimeoffered(date);
-                              setCusUsage(usage);
-                              setCusWallbox(wallbox)
-                              setCusBattery(battery);
-                              setCusModules(module)
-                              setCusBranchSelected(val.firm)
-                              setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                              setCusPostalCode(postal)
-                              } }> Teke to firm </button></td>
-                            </tr>)
-                          }
-                        if (module > 50){
-                          return   (<tr>
-                            <td>{val.firm}</td>
-                            <td>{val.branch}</td> 
-                            <td> {((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work10))}</td>
-                            <td>      <button onClick={() => {
-                            setCusTimeoffered(date);
-                            setCusUsage(usage);
-                            setCusWallbox(wallbox)
-                            setCusBattery(battery);
-                            setCusModules(module)
-                            setCusBranchSelected(val.firm)
-                            setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byestwo + val.stone + (module * val.work100)));
-                            setCusPostalCode(postal)
-                            } }> Teke to firm </button></td>
-                          </tr>)
-                        }
-
-              }
-    }
-
-
-}
   
-}
+   
+     
+    }
+
+
+
+  
+
 
     )}
     </table>                               
@@ -5738,7 +3969,7 @@ if ( battery === 1) {
 
 
   {/* +++++++++++++++++++++++++++++++++++++++++Drop Down Nine +++++++++++++++++++++++++++++++++++++++++++ */} 
- <Accordion expanded={expanded === 9} onChange={handleChange(9)}>
+ <Accordion expanded={expanded === 8} onChange={handleChange(8)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 9: Contact Page</Typography>
       </AccordionSummary>
@@ -5746,7 +3977,7 @@ if ( battery === 1) {
         <Typography>  
         
         <>
-        <InfoIcon color="success" onClick={e => handleClickP(e, 9)}/>
+        <InfoIcon color="success" onClick={e => handleClickP(e, 8 )}/>
 
         <Popover
         id={id}
