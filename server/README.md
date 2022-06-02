@@ -7,11 +7,13 @@ You can find information about how to create a table [here](https://github.com/G
 
 ### Logic
 Calculation of InstallationPrice:
+
 EXPLANATION:
 italic: from Instalationfirm Database
 underlined: from webform
 bold: calculated variable
 GivenNumberOfModules is the number of Modules the user writes in the form
+
 VARIABLES:
 MaxNumberOfModules = roofSize / 2
 IdealNumberOfModules [Int] = yearlyConsumption (kWh) * 1.5 / 330 Wp
