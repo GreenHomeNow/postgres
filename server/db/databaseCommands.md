@@ -22,7 +22,7 @@
 |work10| int|Calculating price for workers if the modules are below 10|
 |work20| int|Calculating price for workers if the modules are below 20|
 |work50| int|Calculating price for workers if the modules are below 50|
-|work100| int|Calculating price for workers if the modules are greater than 100|
+|work100| int|Calculating price for workers if the modules are greater than 50|
 |postal| [int] | array of all postal codes where the firms operate |
 |Scaffold| int | The structure needed to install the solar panels |
 
