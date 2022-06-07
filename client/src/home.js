@@ -27,6 +27,9 @@ import SendIcon from '@mui/icons-material/Send';
 //info modal popperover
 import Popover from '@mui/material/Popover';
 
+//CheckBox 
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
 //Info Button
 import { Modal } from "@mui/material";
@@ -213,7 +216,9 @@ const Home =() =>  {
    const [cuspriceoffered, setCusPriceOffered] = React.useState('');
    const [custime, setCusTimeoffered] = React.useState('');
 
-    // for getting current date
+
+
+  // for getting current date
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
 
@@ -239,7 +244,7 @@ const Home =() =>  {
   };
 
   
-// Handle changes function 
+  // Handle changes function 
   const handleSelectChange = (event) => {
     setUsage(event.target.value);
     
@@ -299,6 +304,26 @@ const Home =() =>  {
       setCusStreetname(event.target.value);
     }; 
   
+  // For checkbox 
+
+  
+
+
+  const [state, setState] = React.useState({
+    gilad: false,
+  
+  });
+
+  const handleSelectedChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    });
+  };
+
+  const { gilad } = state;
+ 
+
     
     // Writting data into customer table
 const handleSubmitCustomer = async (e) => {
@@ -311,6 +336,7 @@ setCusWallbox(wallbox)
 setCusBattery(battery);
 setCusModules(module);
 setCusPostalCode(postal)
+
   try{
     console.log("try started");
    
@@ -886,6 +912,12 @@ if ( battery === 0) {
                                     setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
+                                    <td>  <FormControlLabel
+                                            control={
+                                              <Checkbox checked={gilad} onChange={handleSelectedChange} name="gilad" />
+                                            }
+                                            
+                                          /></td>
                                   </tr>
                                 )
                               }
