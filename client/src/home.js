@@ -60,8 +60,11 @@ import {useNavigate} from 'react-router-dom';
 
 //Postal codes
 const options = [ '12345', '14356']
+
+
 // arrays 
 const firmsArray  = []
+const firmArrayPrices = []
 
 // drop down
 const Accordion = styled((props) => (
@@ -237,7 +240,8 @@ const Home =() =>  {
   
 
   //Installation firms 
-  const [employeeList, setEmployeelist] = useState([]);
+  const [firmList, setfirmList ] = useState([]);
+  const [firmPriceList, setfirmPriceList] = useState([]);
 
   const {firms, setFirms} = useContext(FirmsContext);
   const [postal, setPostal] = React.useState(14356);
@@ -910,12 +914,19 @@ if ( battery === 0) {
                                     firmsArray.push(val.firm);
                                     console.log('we are here');
                                     console.log(firmsArray);
+                                    setfirmList(firmsArray);
+                                    
+                                    firmArrayPrices.push((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))
+                                    console.log('the prices are')
+                                    console.log(firmArrayPrices)
+                                    setfirmPriceList(firmArrayPrices)
+
                                     setCusUsage(usage);
                                     setCusWallbox(wallbox)
                                     setCusBattery(battery);
                                     setCusModules(module)
                                     
-                                    etCusBranchSelected(val.firm)
+                                    setCusBranchSelected(val.firm)
                                     setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
