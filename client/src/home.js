@@ -60,6 +60,8 @@ import {useNavigate} from 'react-router-dom';
 
 //Postal codes
 const options = [ '12345', '14356']
+// arrays 
+const firmsArray  = []
 
 // drop down
 const Accordion = styled((props) => (
@@ -137,6 +139,7 @@ const PrettoSlider = styled(Slider)({
     },
   },
 });
+
 
 
 
@@ -339,7 +342,7 @@ setCusPostalCode(postal)
 
   try{
     console.log("try started");
-   
+   console.log(firmsArray)
     console.log(date)
     console.log(cusemail)
    
@@ -904,11 +907,15 @@ if ( battery === 0) {
                                     <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
+                                    firmsArray.push(val.firm);
+                                    console.log('we are here');
+                                    console.log(firmsArray);
                                     setCusUsage(usage);
                                     setCusWallbox(wallbox)
                                     setCusBattery(battery);
                                     setCusModules(module)
-                                    setCusBranchSelected(val.firm)
+                                    
+                                    etCusBranchSelected(val.firm)
                                     setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
                                     setCusPostalCode(postal)
                                     } }> Teke to firm </button></td>
