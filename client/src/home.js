@@ -360,9 +360,9 @@ setCusPostalCode(postal)
      cuswallbox: cuswallbox,
      cusbattery: cusbattery,
      cusstromzahler: cusstromzahler,
-     cusmodules: cusmodules,
-     cusbranchselected: cusbranchselected,
-     cuspriceoffered: cuspriceoffered,
+     cusmodules: cusmodules, 
+     cusbranchselected: firmList,
+     cuspriceoffered: firmPriceList,
      custime: custime
 
     });
