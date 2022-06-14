@@ -184,7 +184,12 @@ const Home =() =>  {
   const [inputValue, setInputValue] = React.useState('');
   
   //electricty usage 
+  const [yearlyConsumption, setyearlyConsumption ] = React.useState('');
   const [usage, setUsage] = React.useState('');
+
+  
+  const [IdealUsage, setIdealUsage] = React.useState();
+
 
   //wallbox
   const [wallbox, setWallbox] = React.useState('');
@@ -200,7 +205,7 @@ const Home =() =>  {
 
   //variables for calculation functions module & size 
   const [module, setModule] = React.useState(0);
-  const [size, setSize] = React.useState(0);
+  const [RoofSize, setRoofSize] = React.useState(0);
 
   //Height and breadth step 5
   const [hohe, setHohe] = React.useState(0);
@@ -246,6 +251,34 @@ const Home =() =>  {
   const {firms, setFirms} = useContext(FirmsContext);
   const [postal, setPostal] = React.useState(14356);
 
+
+
+  // New values from mvp 
+  const [InstallationPriceLowend, setInstallationPriceLowend] = useState();
+  const [InstallationPriceStandard, setInstallationPriceStandard] = useState();
+  const [InstallationPricehighend, setInstallationPriceHighened] = useState();
+
+
+  const [ModulePriceLowend, setModulePriceLowend] = useState();
+  const [BatteryPriceLowend, setBatteryPriceLowned] =useState();
+
+  const [ModulePriceStandard, setModulePriceStandard] = useState();
+  const [BatteryPriceStandard, setBatteryPriceStandard] = useState();
+
+  const [ModulePriceHighend, setModulePriceHighend] = useState();
+  const [BatteryPriceHighend, setBatteryPriceHighend] = useState();
+
+  const [WorkPrice, setWorkPrice] = useState();
+  const [ScaffoldPrice, setScaffoldprice] = useState();
+  const [WallboxPrice, setWallboxPrice] = useState();
+  const [TravelPrice, setTravelPrice] = useState();
+
+  const [MaxNumberOfmodules, setMaxNumberOfModules ] = useState();
+  const [IdealNumberOfModules, setIdealNumberOfModules ] = useState(0);
+
+
+
+
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -258,7 +291,7 @@ const Home =() =>  {
   };
 
   const handleSize = (event) =>{
-    setSize(event.target.value);
+    setRoofSize(event.target.value);
   } ;
 
   const handleModule = (event) =>{
@@ -378,10 +411,21 @@ setCusPostalCode(postal)
 // 6 hour tutorial https://www.youtube.com/watch?v=J01rYl9T3BU
 
 
+// Dropdown 6 change IdealNumberOfModules based on YearlyConsumotion 
+
+const nextdd6 = async () => {
+
+  setIdealNumberOfModules(yearlyConsumption/400)
+  console.log('we are in nextdd6  function')
+  console.log(IdealNumberOfModules)
+  setExpanded(expanded + 1 )
+}
+
+   
 
 
 
-  // create a state and provide postal code here 
+  //  Dropdown 7 create a state and provide postal code here 
   
     const getEmployee = async () => {
     try {
@@ -394,6 +438,7 @@ setCusPostalCode(postal)
         
   };
 
+ 
 
 
 
@@ -403,7 +448,7 @@ setCusPostalCode(postal)
 <>
 <div id="footer">
     <div>
-{/* +++++++++++++++++++++++++++++++++++++++++Drop Down one ++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}         
+{/* +++++++++++++++++++++++++++++++++++++++++Drop Down one Platz postal code ++++++++++++++++++++++++++++++++++++++++++++++++++++++*/}         
     <Accordion expanded={expanded === 1} onChange={handleChange(1)}>
       <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
         <Typography>Step: 1 Platz</Typography>
@@ -495,7 +540,7 @@ setCusPostalCode(postal)
       </AccordionDetails>
     </Accordion>
 
-{/* ++++++++++++++++++++++++++++++++++++Drop Down two +++++++++++++++++++++++++++++++++++++=*/} 
+{/* ++++++++++++++++++++++++++++++++++++Drop Down two  Usage +++++++++++++++++++++++++++++++++++++=*/} 
     <Accordion expanded={expanded === 2} onChange={handleChange(2)}>
       <AccordionSummary aria-controls="panel2d-content" id="panel2d-header">
         <Typography>Step: 2  Usage</Typography>
@@ -556,7 +601,7 @@ setCusPostalCode(postal)
 
 
 
-{/* +++++++++++++++++++++++++++++++++++++++++++Drop Down three ++++++++++++++++++++++++++++++++++++++++++++++++++ */} 
+{/* +++++++++++++++++++++++++++++++++++++++++++Drop Down three  Wallbox ++++++++++++++++++++++++++++++++++++++++++++++++++ */} 
     <Accordion expanded={expanded === 3} onChange={handleChange(3)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step: 3 Wallbox</Typography>
@@ -613,7 +658,7 @@ setCusPostalCode(postal)
     </Accordion>
 
 
-{/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ Drop Down Four ++++++++++++++++++++++++++++++++++++++++++ */} 
+{/* ++++++++++++++++++++++++++++++++++++++++++++++++++++ Drop Down Four  Battery ++++++++++++++++++++++++++++++++++++++++++ */} 
     <Accordion expanded={expanded === 4} onChange={handleChange(4)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step : 4 Battery</Typography>
@@ -672,7 +717,7 @@ setCusPostalCode(postal)
     </Accordion>
 
 
-    {/* +++++++++++++++++++++++++++++++++++++++++++++++++Drop Down Five+++++++++++++++++++++++++++++++++++++++++++ */} 
+    {/* +++++++++++++++++++++++++++++++++++++++++++++++++Drop Down Five   Fassade +++++++++++++++++++++++++++++++++++++++++++ */} 
     <Accordion expanded={expanded === 5} onChange={handleChange(5)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 5: Fassade</Typography>
@@ -749,7 +794,7 @@ setCusPostalCode(postal)
         </Select>
         <FormHelperText>Required</FormHelperText>
       </FormControl>
-      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextChange}>
+      <Button variant="contained" color='success' endIcon={<SendIcon />} expanded={expanded === 'panel6'} onClick={nextdd6}>
         Weiter
       </Button>
         </Typography>
@@ -757,7 +802,7 @@ setCusPostalCode(postal)
     </Accordion>
 
 
-    {/* ++++++++++++++++++++++++++++++++++++++++++++++Drop Down six +++++++++++++++++++++++++++++++++++++++++++ */} 
+    {/* ++++++++++++++++++++++++++++++++++++++++++++++Drop Down six   Module/ size of roof +++++++++++++++++++++++++++++++++++++++++++ */} 
     <Accordion expanded={expanded === 6} onChange={handleChange(6)}>
       <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
         <Typography>Step 7: Module or size</Typography>
@@ -803,7 +848,7 @@ setCusPostalCode(postal)
        <TextField 
        id="size" 
        label="size" 
-       value={size}
+       value={RoofSize}
        onChange={handleSize}
        variant="outlined" />
       }
@@ -813,12 +858,12 @@ setCusPostalCode(postal)
        disabled
        id="size" 
        label="size" 
-       value={size}
+       value={RoofSize}
        onChange={handleSize}
        variant="outlined" />
       }
 
-{size >= 1 &&
+{RoofSize >= 1 &&
        <TextField 
        disabled
        id="module" 
@@ -828,7 +873,7 @@ setCusPostalCode(postal)
        variant="outlined" />
       }
 
-{size== 0 &&
+{RoofSize== 0 &&
        <TextField 
        id="module" 
        label="module" 
@@ -906,6 +951,7 @@ if ( battery === 0) {
                               if (module <= 10){
                                   return   (
                                   <tr>
+                                    <></>
                                     <td>{val.firm}</td>
                                     <td>{val.branch}</td> 
                                     <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
