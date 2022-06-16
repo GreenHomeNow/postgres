@@ -952,16 +952,16 @@ if ( battery === 0) {
                                   return   (
                                   <tr>
                                     <></>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
+                                    <td>{val.firmname}</td>
+                                    <td>{val.branchname}</td> 
+                                    <td>{(((val.singlemodulecost1 + val.singleunderconstructioncost)* module +val.invertorcost1))}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     firmsArray.push(val.firm);
                                     console.log('we are here');
                                     console.log(firmsArray);
                                     setfirmList(firmsArray);
-                                    
+                                    setModulePriceLowend(((val.singlemodulecost1 + val.singleunderconstructioncost)* module +val.invertorcost1))
                                     firmArrayPrices.push((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))
                                     console.log('the prices are')
                                     console.log(firmArrayPrices)
@@ -975,6 +975,7 @@ if ( battery === 0) {
                                     setCusBranchSelected(val.firm)
                                     setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
                                     setCusPostalCode(postal)
+                                    console.log(module)
                                     } }> Teke to firm </button></td>
                                     <td>  <FormControlLabel
                                             control={
@@ -982,6 +983,11 @@ if ( battery === 0) {
                                             }
                                             
                                           /></td>
+                                          <td>{() => {
+                                            setModulePriceHighend( 55 + 455)
+                                            console.log('yippie')
+                                            console.log(ModulePriceHighend)
+                                          } }</td>
                                   </tr>
                                 )
                               }
