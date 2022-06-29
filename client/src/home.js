@@ -947,21 +947,30 @@ if ( battery === 0) {
           if (usage === 10) {
             {/* Year 1 */}    
                   if (year === 10) {
-                     {/* Dividing based on modules */}      
-                              if (module <= 10){
+                     {/* Dividing based on modules */}    
+                     
+                     if (val.country !== 'Germany'){
+                     {/* If the country is not germany*/}
+                              if (module <= 15){
                                   return   (
                                   <tr>
                                     <></>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td>{((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))}</td>
+                                    <td>{val.firmname}</td>
+                                    <td>{val.branchname}</td> 
+                                    <td>{(((val.singlemodulecost1 + val.singleunderconstructioncost)* IdealNumberOfModules +val.invertorcost1) + (val.batterycost5kwh1) + (val.workcosts1 * IdealNumberOfModules + val.workbatteryinstallation + val.workinvertorinstallation) + ((4/ 2)) + (150 * 4) )}</td>
                                     <td>      <button onClick={() => {
                                     setCusTimeoffered(date);
                                     firmsArray.push(val.firm);
                                     console.log('we are here');
                                     console.log(firmsArray);
                                     setfirmList(firmsArray);
-                                    
+
+                                    setBatteryPriceLowned((val.batterycost5kwh1))
+                                    setModulePriceLowend(((val.singlemodulecost1 + val.singleunderconstructioncost)* module +val.invertorcost1))
+                                    setWorkPrice(val.workcosts1 * module + val.workbatteryinstallation + val.workinvertorinstallation)
+                                    setScaffoldprice(val.workconstructionsitelumpsumcostperday * 4/ 2)
+
+
                                     firmArrayPrices.push((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))
                                     console.log('the prices are')
                                     console.log(firmArrayPrices)
@@ -975,6 +984,7 @@ if ( battery === 0) {
                                     setCusBranchSelected(val.firm)
                                     setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
                                     setCusPostalCode(postal)
+                                    console.log(module)
                                     } }> Teke to firm </button></td>
                                     <td>  <FormControlLabel
                                             control={
@@ -982,29 +992,68 @@ if ( battery === 0) {
                                             }
                                             
                                           /></td>
+                                          <td>{() => {
+                                            setModulePriceHighend( 55 + 455)
+                                            console.log('yippie')
+                                            console.log(ModulePriceHighend)
+                                          } }</td>
                                   </tr>
                                 )
+                                        }
                               }
-                              if (module > 10 && module <= 20){
+ {/* If the country is in germany*/}
+                              if (val.country == 'Germany'){                              
+                              if (module <= 15){
                                 return   (
                               
                                   <tr>
-                                    <td>{val.firm}</td>
-                                    <td>{val.branch}</td> 
-                                    <td>{((val.modprice * module) + (val.uc * module) + val.wno+   val.byesone + val.stone + (module * val.work20))}</td>
-                                    <td>      <button onClick={() => {
-                                    setCusTimeoffered(date);
-                                    setCusUsage(usage);
-                                    setCusWallbox(wallbox)
-                                    setCusBattery(battery);
-                                    setCusModules(module)
-                                    setCusBranchSelected(val.firm)
-                                    setCusPriceOffered((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work20));
-                                    setCusPostalCode(postal)
-                                    } }> Teke to firm </button></td>
-                                  </tr>
+                                  <></>
+                                  <td>{val.firmname}</td>
+                                  <td>{val.branchname}</td> 
+                                  <td>{(((val.singlemodulecost1 + val.singleunderconstructioncost)* IdealNumberOfModules +val.invertorcost1) + (val.batterycost5kwh1) + (val.workcosts1 * IdealNumberOfModules + val.workbatteryinstallation + val.workinvertorinstallation) + ((4/ 2)) )}</td>
+                                  <td>      <button onClick={() => {
+                                  setCusTimeoffered(date);
+                                  firmsArray.push(val.firm);
+                                  console.log('we are here');
+                                  console.log(firmsArray);
+                                  setfirmList(firmsArray);
+
+                                  setBatteryPriceLowned((val.batterycost5kwh1))
+                                  setModulePriceLowend(((val.singlemodulecost1 + val.singleunderconstructioncost)* module +val.invertorcost1))
+                                  setWorkPrice(val.workcosts1 * module + val.workbatteryinstallation + val.workinvertorinstallation)
+                                  setScaffoldprice(val.workconstructionsitelumpsumcostperday * 4/ 2)
+
+
+                                  firmArrayPrices.push((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10))
+                                  console.log('the prices are')
+                                  console.log(firmArrayPrices)
+                                  setfirmPriceList(firmArrayPrices)
+
+                                  setCusUsage(usage);
+                                  setCusWallbox(wallbox)
+                                  setCusBattery(battery);
+                                  setCusModules(module)
+                                  
+                                  setCusBranchSelected(val.firm)
+                                  setCusPriceOffered(((val.modprice * module) + (val.uc * module) + val.wyes+ val.byesone + val.stone + (module * val.work10)));
+                                  setCusPostalCode(postal)
+                                  console.log(module)
+                                  } }> Teke to firm </button></td>
+                                  <td>  <FormControlLabel
+                                          control={
+                                            <Checkbox checked={gilad} onChange={handleSelectedChange} name="gilad" />
+                                          }
+                                          
+                                        /></td>
+                                        <td>{() => {
+                                          setModulePriceHighend( 55 + 455)
+                                          console.log('yippie')
+                                          console.log(ModulePriceHighend)
+                                        } }</td>
+                                </tr>
                                 )
                         }
+                      }
                             if (module > 20 && module <=50){
                               return   (
                                   <tr>
