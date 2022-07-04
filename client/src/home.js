@@ -1,4 +1,4 @@
-import React , {useEffect, useContext, useState}  from "react";
+import React , { useContext, useState}  from "react";
 import firmsFinder from "./apis/firmsFinder";
 import { FirmsContext } from "./context/firmsContext";
 import { styled } from '@mui/material/styles';
@@ -32,7 +32,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 //Info Button
-import { Modal } from "@mui/material";
+
 import InfoIcon from '@mui/icons-material/Info';
 
 //Text Field
@@ -41,17 +41,7 @@ import Box from '@mui/material/Box';
 //Slider 
 import Slider from '@mui/material/Slider';
 
-//Result Table
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
 
-//Axios 
-import Axios from  "axios";
 
 
 //history 
