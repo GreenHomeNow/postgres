@@ -22,7 +22,10 @@ npm install
 
 ### Deployment 
 
-1. [Error](https://www.youtube.com/watch?v=4UDD--ptShs)
+1. [Full Deployment Video](https://www.youtube.com/watch?v=NjYsXuSBZ5U)
+
+
+2. [Error](https://www.youtube.com/watch?v=4UDD--ptShs)
 
 ```
 ssh: connect to host 35.157.44.14 port 22: Operation timed out
