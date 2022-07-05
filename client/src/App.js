@@ -1,6 +1,6 @@
 
 import './App.css';
-import Header from './components/Header.jsx'
+import Header from './components/header.jsx'
 import Footer from './components/Footer.jsx'
 import {Routes, Route, BrowserRouter } from 'react-router-dom';
 //import { FirmsContextProvider } from './context/fimsContext';
