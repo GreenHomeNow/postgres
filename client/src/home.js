@@ -174,11 +174,11 @@ const Home =() =>  {
   const [inputValue, setInputValue] = React.useState('');
   
   //electricty usage 
-  const [yearlyConsumption, setyearlyConsumption ] = React.useState('');
+  const [yearlyConsumption] = React.useState('');
   const [usage, setUsage] = React.useState('');
 
   
-  const [IdealUsage, setIdealUsage] = React.useState();
+  
 
 
   //wallbox
@@ -188,10 +188,7 @@ const Home =() =>  {
   //year 
   const [year, setYear] = React.useState('');
 
-  //Random 3 prices 
-  const [price, setPrice] =  React.useState(0);
-  const [price1, setPrice1] = React.useState(0);
-  const [price2, setPrice2] = React.useState(0);
+
 
   //variables for calculation functions module & size 
   const [module, setModule] = React.useState(0);
@@ -200,7 +197,7 @@ const Home =() =>  {
   //Height and breadth step 5
   const [hohe, setHohe] = React.useState(0);
   const [breite, setBreite] = React.useState(0);
-  const [rent, setRent] = React.useState(0);
+ 
 
    //variables for customer data table 
    const [customername, setCustomerName] = React.useState("");
@@ -211,10 +208,10 @@ const Home =() =>  {
    const [cususage, setCusUsage] = React.useState('');
    const [cuswallbox, setCusWallbox] = React.useState('');
    const [cusbattery, setCusBattery] = React.useState('');
-   const [cusstromzahler, setCusStromzahler] = React.useState('');
+   const [cusstromzahler] = React.useState('');
    const [cusmodules, setCusModules] = React.useState('');
-   const [cusbranchselected, setCusBranchSelected] = React.useState('');
-   const [cuspriceoffered, setCusPriceOffered] = React.useState('');
+  const [cusbranchselected, setCusBranchSelected] = React.useState('');
+  const [cuspriceoffered, setCusPriceOffered] = React.useState('');
    const [custime, setCusTimeoffered] = React.useState('');
 
 
@@ -244,26 +241,26 @@ const Home =() =>  {
 
 
   // New values from mvp 
-  const [InstallationPriceLowend, setInstallationPriceLowend] = useState();
-  const [InstallationPriceStandard, setInstallationPriceStandard] = useState();
-  const [InstallationPricehighend, setInstallationPriceHighened] = useState();
+  //const [InstallationPriceLowend, setInstallationPriceLowend] = useState();
+  //const [InstallationPriceStandard, setInstallationPriceStandard] = useState();
+  //const [InstallationPricehighend, setInstallationPriceHighened] = useState();
 
 
   const [ModulePriceLowend, setModulePriceLowend] = useState();
   const [BatteryPriceLowend, setBatteryPriceLowned] =useState();
 
-  const [ModulePriceStandard, setModulePriceStandard] = useState();
-  const [BatteryPriceStandard, setBatteryPriceStandard] = useState();
+  //const [ModulePriceStandard, setModulePriceStandard] = useState();
+  //const [BatteryPriceStandard, setBatteryPriceStandard] = useState();
 
   const [ModulePriceHighend, setModulePriceHighend] = useState();
-  const [BatteryPriceHighend, setBatteryPriceHighend] = useState();
+//  const [BatteryPriceHighend, setBatteryPriceHighend] = useState();
 
   const [WorkPrice, setWorkPrice] = useState();
   const [ScaffoldPrice, setScaffoldprice] = useState();
-  const [WallboxPrice, setWallboxPrice] = useState();
-  const [TravelPrice, setTravelPrice] = useState();
+  //const [WallboxPrice, setWallboxPrice] = useState();
+  // const [TravelPrice, setTravelPrice] = useState();
 
-  const [MaxNumberOfmodules, setMaxNumberOfModules ] = useState();
+  // const [MaxNumberOfmodules, setMaxNumberOfModules ] = useState();
   const [IdealNumberOfModules, setIdealNumberOfModules ] = useState(0);
 
 
