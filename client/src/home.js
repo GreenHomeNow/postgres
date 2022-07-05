@@ -831,7 +831,7 @@ const nextdd6 = async () => {
 
     {/* solar panel and meters */}   
 
-    {module == 0 &&
+    {module === 0 &&
        <TextField 
        id="size" 
        label="size" 
@@ -860,7 +860,7 @@ const nextdd6 = async () => {
        variant="outlined" />
       }
 
-{RoofSize== 0 &&
+{RoofSize=== 0 &&
        <TextField 
        id="module" 
        label="module" 
