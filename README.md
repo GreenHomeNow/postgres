@@ -33,3 +33,5 @@ ssh: connect to host 35.157.44.14 port 22: Operation timed out
 
 ### References 
 1. [AWS Github CICD ](https://medium.com/thelorry-product-tech-data/amazon-ec2-deployment-complete-ci-cd-pipeline-using-github-actions-and-aws-codedeploy-8a477123ff7e)
+
+2. [Problem with ngix server](https://serverfault.com/questions/1102224/unable-to-restart-nginx-i-think-something-to-do-with-port-80)
