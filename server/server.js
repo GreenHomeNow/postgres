@@ -110,7 +110,7 @@ app.post("/api/v1/firms/", async (req, res) => {
 })
 
 // Route 0) logging port number
-const port = 3006;
+const port = 3007;
 app.listen(port, () =>
 {
     console.log(`we are running on port ${port}`);
