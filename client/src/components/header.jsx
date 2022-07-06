@@ -1,7 +1,7 @@
 
 
 
-function Cabecera(props){
+function Header(props){
         return (
           <header>
             <div id= "titulos">
@@ -30,4 +30,4 @@ function Cabecera(props){
     );
     }
     
-    export default Cabecera;
+    export default Header;
