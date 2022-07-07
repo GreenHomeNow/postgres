@@ -40,7 +40,7 @@ app.get("/api/v1/firms/:postal",  async (req,res) => {
  
   try {
  //parameterised query to avoid sql injection attack      
-    const results = await db.query (`select * from test where ${req.params.postal} = any(postal)`);
+    const results = await db.query (`select * from installationfirms where ${req.params.postal} = any(PostalCodes)`);
 
     res.send(results);
     console.log("we are in route 2");
@@ -54,6 +54,7 @@ app.get("/api/v1/firms/:postal",  async (req,res) => {
   } 
   catch(err) {
       console.log(err)
+
   }
 
 });
