@@ -11,7 +11,7 @@ import axios from 'axios';
 
 
 const baseURL = 
-process.env.NODE_ENV === "production" ? "api/v1/firms" : "http://localhost:3006/api/v1/firms"
+process.env.NODE_ENV === "production" ? "api/v1/firms" : "http://localhost:3007/api/v1/firms"
 export default axios.create({
     baseURL,
 });
