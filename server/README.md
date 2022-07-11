@@ -39,8 +39,12 @@ pm2 restart
 ```
 ### [NGINX](https://www.nginx.com)
 
-Restarting NGINX 
+1. Restarting NGINX 
 ```
 sudo systemctl restart nginx
+```
+2. Checking status 
+```
+sudo systemctl status nginx
 ```
 
