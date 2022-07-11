@@ -9,8 +9,7 @@ Connect to AWS EC2 instance using following command
 ```
  ssh -i "authentication file.yelp" ubuntu@
 ```
-### Pm2 
-[pm2](https://pm2.keymetrics.io)
+### [Pm2](https://pm2.keymetrics.io)
 
 1. List services running on web server 
 ```
