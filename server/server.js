@@ -99,11 +99,13 @@ app.post("/api/v1/frims/", async (req, res) =>{
 });
 
 
+// Writitng customer data on table route (final)
+
 app.post("/api/v1/firms/", async (req, res) => {
     console.log("we are in customer route")
     console.log(req.body.customername)
     try {
-        const results = await db.query("INSERT INTO customerfinalTable(customername, cusemail,  cusstreetname, cushousenumber, cuspostalcode, cususage, cuswallbox, cusbattery, cusstromzahler, cusmodules, cusbranchselected, cuspriceoffered, custime) values($1,$2, $3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) returning *", [req.body.customername, req.body.cusemail, req.body.cusstreetname, req.body.cushousenumber, req.body.cuspostalcode, req.body.cususage, req.body.cuswallbox, req.body.cusbattery, req.body.cusstromzahler, req.body.cusmodules, req.body.cusbranchselected, req.body.cuspriceoffered, req.body.custime]);
+        const results = await db.query("INSERT INTO customerfinaltable(customername, cusemail,  cusstreetname, cushousenumber, cuspostalcode, cususage, cuswallbox, cusbattery, cusstromzahler, cusmodules, cusbranchselected, cuspriceoffered, custime) values($1,$2, $3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13) returning *", [req.body.customername, req.body.cusemail, req.body.cusstreetname, req.body.cushousenumber, req.body.cuspostalcode, req.body.cususage, req.body.cuswallbox, req.body.cusbattery, req.body.cusstromzahler, req.body.cusmodules, req.body.cusbranchselected, req.body.cuspriceoffered, req.body.custime]);
       console.log(results);
     } catch (err) {
         console.log(err)
