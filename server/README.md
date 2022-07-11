@@ -39,3 +39,8 @@ pm2 restart
 ```
 ### [NGINX](https://www.nginx.com)
 
+Restarting NGINX 
+```
+sudo systemctl restart nginx
+```
+
