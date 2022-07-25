@@ -40,6 +40,6 @@ https://www.webgo.de/hilfe/content/79/353/de/wie-richte-ich-eine-subdomain-auf-e
 
 ### References 
 1. [AWS Github CICD ](https://medium.com/thelorry-product-tech-data/amazon-ec2-deployment-complete-ci-cd-pipeline-using-github-actions-and-aws-codedeploy-8a477123ff7e)
-  1.1 [Using Nginx to deploy react application](https://blog.devgenius.io/using-nginx-to-serve-react-application-static-vs-proxy-69b85f368e6c)
+  1. [Using Nginx to deploy react application](https://blog.devgenius.io/using-nginx-to-serve-react-application-static-vs-proxy-69b85f368e6c)
 
-2. [Problem with nginx server](https://serverfault.com/questions/1102224/unable-to-restart-nginx-i-think-something-to-do-with-port-80)
+  2. [Problem with nginx server](https://serverfault.com/questions/1102224/unable-to-restart-nginx-i-think-something-to-do-with-port-80)
