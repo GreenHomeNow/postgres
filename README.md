@@ -27,8 +27,9 @@ npm install
 
 2. [Error](https://www.youtube.com/watch?v=4UDD--ptShs)
 
+```
 ssh: connect to host 35.157.44.14 port 22: Operation timed out
-
+```
 
 #### Subdomain 
 * Deploying app using subdomain
