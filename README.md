@@ -35,7 +35,7 @@ ssh: connect to host 35.157.44.14 port 22: Operation timed out
 * Deploying app using subdomain
 Add sub domain in webgo 
 https://www.webgo.de/hilfe/content/78/42/de/wie-richte-ich-eine-subdomain-ein.html
-Change IP address of the sub Domain 
+* Change IP address of the sub Domain 
 https://www.webgo.de/hilfe/content/79/353/de/wie-richte-ich-eine-subdomain-auf-eine-ip-adresse-ein.html
 
 
