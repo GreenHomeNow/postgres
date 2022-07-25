@@ -39,8 +39,6 @@ Change IP address of the sub Domain
 https://www.webgo.de/hilfe/content/79/353/de/wie-richte-ich-eine-subdomain-auf-eine-ip-adresse-ein.html
 
 
-```
-
 ### References 
 1. [AWS Github CICD ](https://medium.com/thelorry-product-tech-data/amazon-ec2-deployment-complete-ci-cd-pipeline-using-github-actions-and-aws-codedeploy-8a477123ff7e)
   1.1 [Using Nginx to deploy react application](https://blog.devgenius.io/using-nginx-to-serve-react-application-static-vs-proxy-69b85f368e6c)
